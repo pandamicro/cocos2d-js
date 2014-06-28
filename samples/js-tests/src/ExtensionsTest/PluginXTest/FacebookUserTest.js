@@ -73,20 +73,24 @@ var FacebookUserTest = PluginXTest.extend({
         this._agentManager.logout();
     },
     getUidClick: function (sender) {
-        var uid = this._agentManager.getUserPlugin().callFuncWithParam("getUserId");
-        this.result.setString(uid);
         if (this._isLogin == false) {
             this.result.setString("please Login first");
             return;
+        }
+        else{
+            var uid = this._agentManager.getUserPlugin().callStringFuncWithParam("getUserId");
+            this.result.setString(uid);
         }
     },
     getTokenClick: function (sender) {
         if (this._isLogin == false) {
             this.result.setString("please Login first");
-            return;
+           return;
         }
-        var uid = this._agentManager.getUserPlugin().callFuncWithParam("getToken");
-        this.result.setString(uid);
+        else{
+            var token = this._agentManager.getUserPlugin().callStringFuncWithParam("getToken");
+            this.result.setString(token);
+        }
     },
     onNextCallback: function (sender) {
         var s = new PluginXTestScene();
