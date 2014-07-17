@@ -860,11 +860,10 @@ cc.Sprite._create = cc.Sprite.create;
  *
  */
 cc.Sprite.create = function (fileName, rect) {
-    var sprite;
+    //var sprite;
     
     if (arguments.length == 0) {
-        sprite = cc.Sprite._create();
-        return sprite;
+        return cc.Sprite._create();
     }
     
     if (typeof(fileName) === "string") {
@@ -872,27 +871,23 @@ cc.Sprite.create = function (fileName, rect) {
             //init with a sprite frame name
             var frameName = fileName.substr(1, fileName.length - 1);
             var spriteFrame = cc.spriteFrameCache.getSpriteFrame(frameName);
-            sprite = cc.Sprite.createWithSpriteFrame(spriteFrame);
+            return cc.Sprite.createWithSpriteFrame(spriteFrame);
         } else {
             // Create with filename and rect
-            sprite = rect ? cc.Sprite._create(fileName, rect) : cc.Sprite._create(fileName);
+            return (rect ? cc.Sprite._create(fileName, rect) : cc.Sprite._create(fileName));
         }
-        if (sprite)
-            return sprite;
-        else return null;
+        return null;
     }
     
     if (typeof(fileName) === "object") {
         if (fileName instanceof cc.Texture2D) {
             //init  with texture and rect
-            sprite = rect ? cc.Sprite.createWithTexture(fileName, rect) : cc.Sprite.createWithTexture(fileName);
+            return (rect ? cc.Sprite.createWithTexture(fileName, rect) : cc.Sprite.createWithTexture(fileName));
         } else if (fileName instanceof cc.SpriteFrame) {
             //init with a sprite frame
-            sprite = cc.Sprite.createWithSpriteFrame(fileName);
+            return cc.Sprite.createWithSpriteFrame(fileName);
         }
-        if (sprite)
-            return  sprite;
-        else return null;
+        return null;
     }
     
     return null;
