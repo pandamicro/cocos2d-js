@@ -211,8 +211,8 @@ var CCNodeTest5 = TestNodeDemo.extend({
         var sp2 = this.getChildByTag(TAG_SPRITE2);
 
         // hack for JSB.
-        sp1.retain();
-        sp2.retain();
+        //sp1.retain();
+        //sp2.retain();
 
         this.removeChild(sp1, false);
         this.removeChild(sp2, true);
@@ -224,8 +224,8 @@ var CCNodeTest5 = TestNodeDemo.extend({
         this.addChild(sp2, 0, TAG_SPRITE2);
 
         // hack for JSB.
-        sp1.release();
-        sp2.release();
+        //sp1.release();
+        //sp2.release();
         //----end2----
     },
     title:function () {
@@ -295,8 +295,8 @@ var CCNodeTest6 = TestNodeDemo.extend({
         var sp2 = this.getChildByTag(TAG_SPRITE2);
 
         // hack for JSB.
-        sp1.retain();
-        sp2.retain();
+        //sp1.retain();
+        //sp2.retain();
 
         this.removeChild(sp1, false);
         this.removeChild(sp2, true);
@@ -309,8 +309,8 @@ var CCNodeTest6 = TestNodeDemo.extend({
         this.addChild(sp2, 0, TAG_SPRITE2);
 
         // hack for JSB.
-        sp1.release();
-        sp2.release();
+        //sp1.release();
+        //sp2.release();
         //----end3----
 
     },

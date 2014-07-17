@@ -102,7 +102,7 @@ var RenderTextureSave = RenderTextureBaseLayer.extend({
             }, this);
 
         this._brush = new cc.Sprite(s_fire);
-        this._brush.retain();
+        //this._brush.retain();
 
         this._brush.color = cc.color.RED;
         this._brush.opacity = 20;
@@ -128,7 +128,7 @@ var RenderTextureSave = RenderTextureBaseLayer.extend({
     },
 
     onExit:function () {
-        this._brush.release();
+        //this._brush.release();
         this._super();
     },
 

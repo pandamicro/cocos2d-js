@@ -606,7 +606,7 @@ var RemoveAndRetainNodeTest =  EventDispatcherTestDemo.extend({
         this.runAction(cc.Sequence.create(cc.DelayTime.create(5.0),
             cc.CallFunc.create(function () {
                 this._spriteSaved = true;
-                this._sprite.retain();
+                //this._sprite.retain();
                 this._sprite.removeFromParent();
             }, this),
             cc.DelayTime.create(5.0),
@@ -615,7 +615,7 @@ var RemoveAndRetainNodeTest =  EventDispatcherTestDemo.extend({
                 this.addChild(this._sprite);
                 if(!cc.sys.isNative)
                     cc.eventManager.addListener(listener1, this._sprite);
-                this._sprite.release();
+                //this._sprite.release();
             }, this)
         ));
         //----end6----

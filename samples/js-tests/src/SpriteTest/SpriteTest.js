@@ -107,6 +107,13 @@ var Sprite1 = SpriteTestDemo.extend({
 
         this.addNewSpriteWithCoords(cc.p(winSize.width / 2, winSize.height / 2));
 
+        var idx = 0 | (Math.random() * 14);
+        var x = (idx % 5) * 85;
+        var y = (0 | (idx / 5)) * 121;
+        this.sprite = cc.Sprite.create(s_grossini_dance_atlas, cc.rect(x, y, 85, 121));
+        this.sprite.x = 100;
+        this.sprite.y = 200;
+
         if ('touches' in cc.sys.capabilities) {
             cc.eventManager.addListener({
                 event: cc.EventListener.TOUCH_ALL_AT_ONCE,
@@ -126,6 +133,10 @@ var Sprite1 = SpriteTestDemo.extend({
                 event: cc.EventListener.MOUSE,
                 onMouseUp: function(event){
                     event.getCurrentTarget().addNewSpriteWithCoords(event.getLocation());
+
+                    var target = event.getCurrentTarget();
+                    cc.log(target.sprite);
+                    target.addChild(target.sprite);
                 }
             }, this);
         //----end0----
@@ -141,24 +152,24 @@ var Sprite1 = SpriteTestDemo.extend({
         sprite.x = p.x;
         sprite.y = p.y;
 
-        var action;
-        var random = Math.random();
-        if (random < 0.20) {
-            action = new cc.ScaleBy(3, 2);
-        } else if (random < 0.40) {
-            action = new cc.RotateBy(3, 360);
-        } else if (random < 0.60) {
-            action = new cc.Blink(1, 3);
-        } else if (random < 0.8) {
-            action = new cc.TintBy(2, 0, -255, -255);
-        } else {
-            action = new cc.FadeOut(2);
-        }
-
-        var action_back = action.reverse();
-        var seq = new cc.Sequence(action, action_back);
-
-        sprite.runAction(seq.repeatForever());
+//        var action;
+//        var random = Math.random();
+//        if (random < 0.20) {
+//            action = new cc.ScaleBy(3, 2);
+//        } else if (random < 0.40) {
+//            action = new cc.RotateBy(3, 360);
+//        } else if (random < 0.60) {
+//            action = new cc.Blink(1, 3);
+//        } else if (random < 0.8) {
+//            action = new cc.TintBy(2, 0, -255, -255);
+//        } else {
+//            action = new cc.FadeOut(2);
+//        }
+//
+//        var action_back = action.reverse();
+//        var seq = new cc.Sequence(action, action_back);
+//
+//        sprite.runAction(seq.repeatForever());
         this.testSprite = sprite;
         //----end0----
     },
@@ -3272,12 +3283,12 @@ var SpriteHybrid = SpriteTestDemo.extend({
         var p = this.getChildByTag(TAG_NODE);
         var frame = spriteFrameCache.getSpriteFrame("grossini_dance_01.png");
         var sprite1 = new cc.Sprite(frame);
-        sprite1.retain();
+        //sprite1.retain();
         p.addChild(sprite1, 1000);
         sprite1.x = winSize.width / 4;
         sprite1.y = winSize.height / 2;
         var sprite2 = new cc.Sprite(frame);
-        sprite2.retain();
+        //sprite2.retain();
         p.addChild(sprite2, 1000);
         sprite2.x = winSize.width / 2;
         sprite2.y = winSize.height / 2;
