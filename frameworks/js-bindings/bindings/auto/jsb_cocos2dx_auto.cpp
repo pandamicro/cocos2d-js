@@ -43400,7 +43400,6 @@ bool js_cocos2dx_Sprite_setVertexRect(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "js_cocos2dx_Sprite_setVertexRect : wrong number of arguments: %d, was expecting %d", argc, 1);
 	return false;
 }
-static int retained = 0;
 bool js_cocos2dx_Sprite_create(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -43412,9 +43411,6 @@ bool js_cocos2dx_Sprite_create(JSContext *cx, uint32_t argc, jsval *vp)
 			ok &= jsval_to_std_string(cx, argv[0], &arg0);
 			if (!ok) { ok = true; break; }
 			cocos2d::Sprite* ret = cocos2d::Sprite::create(arg0);
-            //ret->retain();
-            retained++;
-            CCLOG("<<<<< Retained: %d", retained);
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -43432,9 +43428,6 @@ bool js_cocos2dx_Sprite_create(JSContext *cx, uint32_t argc, jsval *vp)
 	do {
 		if (argc == 0) {
 			cocos2d::Sprite* ret = cocos2d::Sprite::create();
-            //ret->retain();
-            retained++;
-            CCLOG("<<<<< Retained: %d", retained);
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -43458,9 +43451,6 @@ bool js_cocos2dx_Sprite_create(JSContext *cx, uint32_t argc, jsval *vp)
 			ok &= jsval_to_ccrect(cx, argv[1], &arg1);
 			if (!ok) { ok = true; break; }
 			cocos2d::Sprite* ret = cocos2d::Sprite::create(arg0, arg1);
-            //ret->retain();
-            retained++;
-            CCLOG("<<<<< Retained: %d", retained);
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -43498,9 +43488,6 @@ bool js_cocos2dx_Sprite_createWithTexture(JSContext *cx, uint32_t argc, jsval *v
 			ok &= jsval_to_ccrect(cx, argv[1], &arg1);
 			if (!ok) { ok = true; break; }
 			cocos2d::Sprite* ret = cocos2d::Sprite::createWithTexture(arg0, arg1);
-            //ret->retain();
-            retained++;
-            CCLOG("<<<<< Retained: %d", retained);
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -43533,9 +43520,6 @@ bool js_cocos2dx_Sprite_createWithTexture(JSContext *cx, uint32_t argc, jsval *v
 			arg2 = JS::ToBoolean(JS::RootedValue(cx, argv[2]));
 			if (!ok) { ok = true; break; }
 			cocos2d::Sprite* ret = cocos2d::Sprite::createWithTexture(arg0, arg1, arg2);
-            //ret->retain();
-            retained++;
-            CCLOG("<<<<< Retained: %d", retained);
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -43563,9 +43547,6 @@ bool js_cocos2dx_Sprite_createWithTexture(JSContext *cx, uint32_t argc, jsval *v
 			} while (0);
 			if (!ok) { ok = true; break; }
 			cocos2d::Sprite* ret = cocos2d::Sprite::createWithTexture(arg0);
-            //ret->retain();
-            retained++;
-            CCLOG("<<<<< Retained: %d", retained);
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -43591,9 +43572,6 @@ bool js_cocos2dx_Sprite_createWithSpriteFrameName(JSContext *cx, uint32_t argc, 
 		ok &= jsval_to_std_string(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_Sprite_createWithSpriteFrameName : Error processing arguments");
 		cocos2d::Sprite* ret = cocos2d::Sprite::createWithSpriteFrameName(arg0);
-        //ret->retain();
-        retained++;
-        CCLOG("<<<<< Retained: %d", retained);
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -43626,9 +43604,6 @@ bool js_cocos2dx_Sprite_createWithSpriteFrame(JSContext *cx, uint32_t argc, jsva
 		} while (0);
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_Sprite_createWithSpriteFrame : Error processing arguments");
 		cocos2d::Sprite* ret = cocos2d::Sprite::createWithSpriteFrame(arg0);
-        //ret->retain();
-        retained++;
-        CCLOG("<<<<< Retained: %d", retained);
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -43651,12 +43626,9 @@ bool js_cocos2dx_Sprite_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 	bool ok = true;
     cocos2d::Sprite* cobj = new cocos2d::Sprite();
     cocos2d::Ref *_ccobj = dynamic_cast<cocos2d::Ref *>(cobj);
-//    if (_ccobj) {
-//        _ccobj->autorelease();
-//    }
-//    _ccobj->retain();
-    retained++;
-    CCLOG("<<<<< Retained: %d", retained);
+    if (_ccobj) {
+        _ccobj->autorelease();
+    }
     TypeTest<cocos2d::Sprite> t;
     js_type_class_t *typeClass = nullptr;
     std::string typeName = t.s_name();
@@ -43668,7 +43640,7 @@ bool js_cocos2dx_Sprite_constructor(JSContext *cx, uint32_t argc, jsval *vp)
     JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
     // link the native object with the javascript object
     js_proxy_t* p = jsb_new_proxy(cobj, obj);
-    //JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::Sprite");
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::Sprite");
     if (JS_HasProperty(cx, obj, "_ctor", &ok))
         ScriptingCore::getInstance()->executeFunctionWithOwner(OBJECT_TO_JSVAL(obj), "_ctor", argc, argv);
     return true;
@@ -43677,17 +43649,7 @@ bool js_cocos2dx_Sprite_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 extern JSObject *jsb_cocos2d_Node_prototype;
 
-static int released = 0;
 void js_cocos2d_Sprite_finalize(JSFreeOp *fop, JSObject *obj) {
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::Sprite* cobj = (cocos2d::Sprite *)(proxy ? proxy->ptr : NULL);
-    jsb_remove_proxy(jsb_get_native_proxy(cobj), proxy);
-    proxy = jsb_get_native_proxy(cobj);
-    if (cobj != NULL) {
-        cobj->release();
-        released++;
-        CCLOG("===== RELEASED: %d", released);
-    }
     CCLOGINFO("jsbindings: finalizing JS object %p (Sprite)", obj);
 }
 
@@ -43699,9 +43661,6 @@ static bool js_cocos2d_Sprite_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     if (nobj) {
         nobj->autorelease();
     }
-//    nobj->retain();
-//    retained++;
-//    CCLOG("<<<<< Retained: %d", retained);
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::Sprite");
     bool isFound = false;
