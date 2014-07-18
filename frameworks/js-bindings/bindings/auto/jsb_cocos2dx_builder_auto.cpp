@@ -6,8 +6,6 @@ template<class T>
 static bool dummy_constructor(JSContext *cx, uint32_t argc, jsval *vp) {
     JS::RootedValue initializing(cx);
     bool isNewValid = true;
-    JSObject* global = ScriptingCore::getInstance()->getGlobalObject();
-	isNewValid = JS_GetProperty(cx, global, "initializing", &initializing) && JSVAL_TO_BOOLEAN(initializing);
 	if (isNewValid)
 	{
 		TypeTest<T> t;
@@ -19,11 +17,13 @@ static bool dummy_constructor(JSContext *cx, uint32_t argc, jsval *vp) {
 		CCASSERT(typeClass, "The value is null.");
 
 		JSObject *_tmp = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+		T* cobj = new T();
+		js_proxy_t *pp = jsb_new_proxy(cobj, _tmp);
+		JS_AddObjectRoot(cx, &pp->obj);
 		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(_tmp));
 		return true;
 	}
 
-    JS_ReportError(cx, "Don't use `new cc.XXX`, please use `cc.XXX.create` instead! ");
     return false;
 }
 
@@ -878,10 +878,6 @@ bool js_cocos2dx_builder_CCBAnimationManager_constructor(JSContext *cx, uint32_t
 	jsval *argv = JS_ARGV(cx, vp);
 	bool ok = true;
     cocosbuilder::CCBAnimationManager* cobj = new cocosbuilder::CCBAnimationManager();
-    cocos2d::Ref *_ccobj = dynamic_cast<cocos2d::Ref *>(cobj);
-    if (_ccobj) {
-        _ccobj->autorelease();
-    }
     TypeTest<cocosbuilder::CCBAnimationManager> t;
     js_type_class_t *typeClass = nullptr;
     std::string typeName = t.s_name();
@@ -893,7 +889,6 @@ bool js_cocos2dx_builder_CCBAnimationManager_constructor(JSContext *cx, uint32_t
     JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
     // link the native object with the javascript object
     js_proxy_t* p = jsb_new_proxy(cobj, obj);
-    JS_AddNamedObjectRoot(cx, &p->obj, "cocosbuilder::CCBAnimationManager");
     if (JS_HasProperty(cx, obj, "_ctor", &ok))
         ScriptingCore::getInstance()->executeFunctionWithOwner(OBJECT_TO_JSVAL(obj), "_ctor", argc, argv);
     return true;
@@ -903,6 +898,19 @@ bool js_cocos2dx_builder_CCBAnimationManager_constructor(JSContext *cx, uint32_t
 
 void js_cocosbuilder_CCBAnimationManager_finalize(JSFreeOp *fop, JSObject *obj) {
     CCLOGINFO("jsbindings: finalizing JS object %p (CCBAnimationManager)", obj);
+    js_proxy_t* nproxy;
+    js_proxy_t* jsproxy;
+    jsproxy = jsb_get_js_proxy(obj);
+    if (jsproxy) {
+        cocosbuilder::CCBAnimationManager *nobj = static_cast<cocosbuilder::CCBAnimationManager *>(jsproxy->ptr);
+        nproxy = jsb_get_native_proxy(nobj);
+
+        if (nobj) {
+            jsb_remove_proxy(nproxy, jsproxy);
+            nobj->release();
+        }
+        else jsb_remove_proxy(nullptr, jsproxy);
+    }
 }
 
 void js_register_cocos2dx_builder_CCBAnimationManager(JSContext *cx, JSObject *global) {
@@ -1402,10 +1410,6 @@ bool js_cocos2dx_builder_CCBReader_constructor(JSContext *cx, uint32_t argc, jsv
 			} while (0);
 			if (!ok) { ok = true; break; }
 			cobj = new cocosbuilder::CCBReader(arg0);
-			cocos2d::Ref *_ccobj = dynamic_cast<cocos2d::Ref *>(cobj);
-			if (_ccobj) {
-				_ccobj->autorelease();
-			}
 			TypeTest<cocosbuilder::CCBReader> t;
 			js_type_class_t *typeClass = nullptr;
 			std::string typeName = t.s_name();
@@ -1415,7 +1419,6 @@ bool js_cocos2dx_builder_CCBReader_constructor(JSContext *cx, uint32_t argc, jsv
 			CCASSERT(typeClass, "The value is null.");
 			obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
 			js_proxy_t* p = jsb_new_proxy(cobj, obj);
-			JS_AddNamedObjectRoot(cx, &p->obj, "cocosbuilder::CCBReader");
 		}
 	} while(0);
 
@@ -1432,10 +1435,6 @@ bool js_cocos2dx_builder_CCBReader_constructor(JSContext *cx, uint32_t argc, jsv
 			} while (0);
 			if (!ok) { ok = true; break; }
 			cobj = new cocosbuilder::CCBReader(arg0);
-			cocos2d::Ref *_ccobj = dynamic_cast<cocos2d::Ref *>(cobj);
-			if (_ccobj) {
-				_ccobj->autorelease();
-			}
 			TypeTest<cocosbuilder::CCBReader> t;
 			js_type_class_t *typeClass = nullptr;
 			std::string typeName = t.s_name();
@@ -1445,7 +1444,6 @@ bool js_cocos2dx_builder_CCBReader_constructor(JSContext *cx, uint32_t argc, jsv
 			CCASSERT(typeClass, "The value is null.");
 			obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
 			js_proxy_t* p = jsb_new_proxy(cobj, obj);
-			JS_AddNamedObjectRoot(cx, &p->obj, "cocosbuilder::CCBReader");
 		}
 	} while(0);
 
@@ -1472,10 +1470,6 @@ bool js_cocos2dx_builder_CCBReader_constructor(JSContext *cx, uint32_t argc, jsv
 			} while (0);
 			if (!ok) { ok = true; break; }
 			cobj = new cocosbuilder::CCBReader(arg0, arg1);
-			cocos2d::Ref *_ccobj = dynamic_cast<cocos2d::Ref *>(cobj);
-			if (_ccobj) {
-				_ccobj->autorelease();
-			}
 			TypeTest<cocosbuilder::CCBReader> t;
 			js_type_class_t *typeClass = nullptr;
 			std::string typeName = t.s_name();
@@ -1485,7 +1479,6 @@ bool js_cocos2dx_builder_CCBReader_constructor(JSContext *cx, uint32_t argc, jsv
 			CCASSERT(typeClass, "The value is null.");
 			obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
 			js_proxy_t* p = jsb_new_proxy(cobj, obj);
-			JS_AddNamedObjectRoot(cx, &p->obj, "cocosbuilder::CCBReader");
 		}
 	} while(0);
 
@@ -1522,10 +1515,6 @@ bool js_cocos2dx_builder_CCBReader_constructor(JSContext *cx, uint32_t argc, jsv
 			} while (0);
 			if (!ok) { ok = true; break; }
 			cobj = new cocosbuilder::CCBReader(arg0, arg1, arg2);
-			cocos2d::Ref *_ccobj = dynamic_cast<cocos2d::Ref *>(cobj);
-			if (_ccobj) {
-				_ccobj->autorelease();
-			}
 			TypeTest<cocosbuilder::CCBReader> t;
 			js_type_class_t *typeClass = nullptr;
 			std::string typeName = t.s_name();
@@ -1535,7 +1524,6 @@ bool js_cocos2dx_builder_CCBReader_constructor(JSContext *cx, uint32_t argc, jsv
 			CCASSERT(typeClass, "The value is null.");
 			obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
 			js_proxy_t* p = jsb_new_proxy(cobj, obj);
-			JS_AddNamedObjectRoot(cx, &p->obj, "cocosbuilder::CCBReader");
 		}
 	} while(0);
 
@@ -1582,10 +1570,6 @@ bool js_cocos2dx_builder_CCBReader_constructor(JSContext *cx, uint32_t argc, jsv
 			} while (0);
 			if (!ok) { ok = true; break; }
 			cobj = new cocosbuilder::CCBReader(arg0, arg1, arg2, arg3);
-			cocos2d::Ref *_ccobj = dynamic_cast<cocos2d::Ref *>(cobj);
-			if (_ccobj) {
-				_ccobj->autorelease();
-			}
 			TypeTest<cocosbuilder::CCBReader> t;
 			js_type_class_t *typeClass = nullptr;
 			std::string typeName = t.s_name();
@@ -1595,17 +1579,12 @@ bool js_cocos2dx_builder_CCBReader_constructor(JSContext *cx, uint32_t argc, jsv
 			CCASSERT(typeClass, "The value is null.");
 			obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
 			js_proxy_t* p = jsb_new_proxy(cobj, obj);
-			JS_AddNamedObjectRoot(cx, &p->obj, "cocosbuilder::CCBReader");
 		}
 	} while(0);
 
 	do {
 		if (argc == 0) {
 			cobj = new cocosbuilder::CCBReader();
-			cocos2d::Ref *_ccobj = dynamic_cast<cocos2d::Ref *>(cobj);
-			if (_ccobj) {
-				_ccobj->autorelease();
-			}
 			TypeTest<cocosbuilder::CCBReader> t;
 			js_type_class_t *typeClass = nullptr;
 			std::string typeName = t.s_name();
@@ -1615,7 +1594,6 @@ bool js_cocos2dx_builder_CCBReader_constructor(JSContext *cx, uint32_t argc, jsv
 			CCASSERT(typeClass, "The value is null.");
 			obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
 			js_proxy_t* p = jsb_new_proxy(cobj, obj);
-			JS_AddNamedObjectRoot(cx, &p->obj, "cocosbuilder::CCBReader");
 		}
 	} while(0);
 
@@ -1631,6 +1609,19 @@ bool js_cocos2dx_builder_CCBReader_constructor(JSContext *cx, uint32_t argc, jsv
 
 void js_cocosbuilder_CCBReader_finalize(JSFreeOp *fop, JSObject *obj) {
     CCLOGINFO("jsbindings: finalizing JS object %p (CCBReader)", obj);
+    js_proxy_t* nproxy;
+    js_proxy_t* jsproxy;
+    jsproxy = jsb_get_js_proxy(obj);
+    if (jsproxy) {
+        cocosbuilder::CCBReader *nobj = static_cast<cocosbuilder::CCBReader *>(jsproxy->ptr);
+        nproxy = jsb_get_native_proxy(nobj);
+
+        if (nobj) {
+            jsb_remove_proxy(nproxy, jsproxy);
+            nobj->release();
+        }
+        else jsb_remove_proxy(nullptr, jsproxy);
+    }
 }
 
 void js_register_cocos2dx_builder_CCBReader(JSContext *cx, JSObject *global) {
