@@ -28,6 +28,22 @@ var cc = cc || {};
 var window = window || this;
 
 /**
+ * This function can build a reference of target in linkTo object,
+ * This is for avoiding the target being released in garbage collection
+ * while linkTo object still keep its reference in native environment.
+ * So we simulate manually a reference in js environment.
+ *
+ * @param {object} linkTo   The object to link the target to
+ * @param {object} target   The target to be linked
+ */
+cc.buildLink = function(linkTo, target) {
+    linkTo._nodeRefs || (linkTo._nodeRefs = []);
+    if (linkTo._nodeRefs.indexOf(target) == -1) {
+        linkTo._nodeRefs.push(target);
+    }
+};
+
+/**
  * Iterate over an object or an array, executing a function for each matched element.
  * @param {object|array} obj
  * @param {function} iterator
