@@ -2704,6 +2704,12 @@ bool js_cocos2dx_Node_addChild(JSContext *cx, uint32_t argc, jsval *vp)
 			ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
 			if (!ok) { ok = true; break; }
 			cobj->addChild(arg0, arg1);
+            
+            JS::RootedValue nsval(cx);
+            JS_GetProperty(cx, ScriptingCore::getInstance()->getGlobalObject(), "cc", &nsval);
+            jsval buildArgv[2] = {OBJECT_TO_JSVAL(obj), argv[0]};
+            ScriptingCore::getInstance()->executeFunctionWithOwner(nsval, "buildLink", 2, buildArgv);
+            
 			JS_SET_RVAL(cx, vp, JSVAL_VOID);
 			return true;
 		}
