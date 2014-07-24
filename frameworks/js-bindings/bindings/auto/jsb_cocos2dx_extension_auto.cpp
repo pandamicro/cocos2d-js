@@ -650,6 +650,8 @@ bool js_cocos2dx_extension_Scale9Sprite_create(JSContext *cx, uint32_t argc, jsv
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::Scale9Sprite* ret = cocos2d::extension::Scale9Sprite::create(arg0, arg1, arg2);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -668,6 +670,8 @@ bool js_cocos2dx_extension_Scale9Sprite_create(JSContext *cx, uint32_t argc, jsv
 		if (argc == 0) {
 			cocos2d::extension::Scale9Sprite* ret = cocos2d::extension::Scale9Sprite::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -692,6 +696,8 @@ bool js_cocos2dx_extension_Scale9Sprite_create(JSContext *cx, uint32_t argc, jsv
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::Scale9Sprite* ret = cocos2d::extension::Scale9Sprite::create(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -716,6 +722,8 @@ bool js_cocos2dx_extension_Scale9Sprite_create(JSContext *cx, uint32_t argc, jsv
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::Scale9Sprite* ret = cocos2d::extension::Scale9Sprite::create(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -737,6 +745,8 @@ bool js_cocos2dx_extension_Scale9Sprite_create(JSContext *cx, uint32_t argc, jsv
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::Scale9Sprite* ret = cocos2d::extension::Scale9Sprite::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -768,6 +778,8 @@ bool js_cocos2dx_extension_Scale9Sprite_createWithSpriteFrameName(JSContext *cx,
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::Scale9Sprite* ret = cocos2d::extension::Scale9Sprite::createWithSpriteFrameName(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -789,6 +801,8 @@ bool js_cocos2dx_extension_Scale9Sprite_createWithSpriteFrameName(JSContext *cx,
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::Scale9Sprite* ret = cocos2d::extension::Scale9Sprite::createWithSpriteFrameName(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -827,6 +841,8 @@ bool js_cocos2dx_extension_Scale9Sprite_createWithSpriteFrame(JSContext *cx, uin
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::Scale9Sprite* ret = cocos2d::extension::Scale9Sprite::createWithSpriteFrame(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -855,6 +871,8 @@ bool js_cocos2dx_extension_Scale9Sprite_createWithSpriteFrame(JSContext *cx, uin
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::Scale9Sprite* ret = cocos2d::extension::Scale9Sprite::createWithSpriteFrame(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -907,6 +925,8 @@ void js_cocos2d_extension_Scale9Sprite_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -1236,6 +1256,8 @@ bool js_cocos2dx_extension_Control_create(JSContext *cx, uint32_t argc, jsval *v
 	if (argc == 0) {
 		cocos2d::extension::Control* ret = cocos2d::extension::Control::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -1288,6 +1310,8 @@ void js_cocos2d_extension_Control_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -2326,6 +2350,8 @@ bool js_cocos2dx_extension_ControlButton_create(JSContext *cx, uint32_t argc, js
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::ControlButton* ret = cocos2d::extension::ControlButton::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -2344,6 +2370,8 @@ bool js_cocos2dx_extension_ControlButton_create(JSContext *cx, uint32_t argc, js
 		if (argc == 0) {
 			cocos2d::extension::ControlButton* ret = cocos2d::extension::ControlButton::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -2382,6 +2410,8 @@ bool js_cocos2dx_extension_ControlButton_create(JSContext *cx, uint32_t argc, js
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::ControlButton* ret = cocos2d::extension::ControlButton::create(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -2409,6 +2439,8 @@ bool js_cocos2dx_extension_ControlButton_create(JSContext *cx, uint32_t argc, js
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::ControlButton* ret = cocos2d::extension::ControlButton::create(arg0, arg1, arg2);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -2461,6 +2493,8 @@ void js_cocos2d_extension_ControlButton_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -2829,6 +2863,8 @@ bool js_cocos2dx_extension_ControlHuePicker_create(JSContext *cx, uint32_t argc,
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_extension_ControlHuePicker_create : Error processing arguments");
 		cocos2d::extension::ControlHuePicker* ret = cocos2d::extension::ControlHuePicker::create(arg0, arg1);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -2881,6 +2917,8 @@ void js_cocos2d_extension_ControlHuePicker_finalize(JSFreeOp *fop, JSObject *obj
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -3172,6 +3210,8 @@ bool js_cocos2dx_extension_ControlSaturationBrightnessPicker_create(JSContext *c
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_extension_ControlSaturationBrightnessPicker_create : Error processing arguments");
 		cocos2d::extension::ControlSaturationBrightnessPicker* ret = cocos2d::extension::ControlSaturationBrightnessPicker::create(arg0, arg1);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -3224,6 +3264,8 @@ void js_cocos2d_extension_ControlSaturationBrightnessPicker_finalize(JSFreeOp *f
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -3552,6 +3594,8 @@ bool js_cocos2dx_extension_ControlColourPicker_create(JSContext *cx, uint32_t ar
 	if (argc == 0) {
 		cocos2d::extension::ControlColourPicker* ret = cocos2d::extension::ControlColourPicker::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -3604,6 +3648,8 @@ void js_cocos2d_extension_ControlColourPicker_finalize(JSFreeOp *fop, JSObject *
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -4100,6 +4146,8 @@ bool js_cocos2dx_extension_ControlPotentiometer_create(JSContext *cx, uint32_t a
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_extension_ControlPotentiometer_create : Error processing arguments");
 		cocos2d::extension::ControlPotentiometer* ret = cocos2d::extension::ControlPotentiometer::create(arg0, arg1, arg2);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -4152,6 +4200,8 @@ void js_cocos2d_extension_ControlPotentiometer_finalize(JSFreeOp *fop, JSObject 
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -4858,6 +4908,8 @@ bool js_cocos2dx_extension_ControlSlider_create(JSContext *cx, uint32_t argc, js
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::ControlSlider* ret = cocos2d::extension::ControlSlider::create(arg0, arg1, arg2);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -4885,6 +4937,8 @@ bool js_cocos2dx_extension_ControlSlider_create(JSContext *cx, uint32_t argc, js
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::ControlSlider* ret = cocos2d::extension::ControlSlider::create(arg0, arg1, arg2);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -4915,6 +4969,8 @@ bool js_cocos2dx_extension_ControlSlider_create(JSContext *cx, uint32_t argc, js
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::ControlSlider* ret = cocos2d::extension::ControlSlider::create(arg0, arg1, arg2, arg3);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -4973,6 +5029,8 @@ bool js_cocos2dx_extension_ControlSlider_create(JSContext *cx, uint32_t argc, js
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::ControlSlider* ret = cocos2d::extension::ControlSlider::create(arg0, arg1, arg2, arg3);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -5025,6 +5083,8 @@ void js_cocos2d_extension_ControlSlider_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -5605,6 +5665,8 @@ bool js_cocos2dx_extension_ControlStepper_create(JSContext *cx, uint32_t argc, j
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_extension_ControlStepper_create : Error processing arguments");
 		cocos2d::extension::ControlStepper* ret = cocos2d::extension::ControlStepper::create(arg0, arg1);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -5657,6 +5719,8 @@ void js_cocos2d_extension_ControlStepper_finalize(JSFreeOp *fop, JSObject *obj) 
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -6043,6 +6107,8 @@ bool js_cocos2dx_extension_ControlSwitch_create(JSContext *cx, uint32_t argc, js
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::ControlSwitch* ret = cocos2d::extension::ControlSwitch::create(arg0, arg1, arg2, arg3);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -6121,6 +6187,8 @@ bool js_cocos2dx_extension_ControlSwitch_create(JSContext *cx, uint32_t argc, js
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::ControlSwitch* ret = cocos2d::extension::ControlSwitch::create(arg0, arg1, arg2, arg3, arg4, arg5);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -6173,6 +6241,8 @@ void js_cocos2d_extension_ControlSwitch_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -6879,6 +6949,8 @@ bool js_cocos2dx_extension_ScrollView_create(JSContext *cx, uint32_t argc, jsval
 		if (argc == 0) {
 			cocos2d::extension::ScrollView* ret = cocos2d::extension::ScrollView::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -6900,6 +6972,8 @@ bool js_cocos2dx_extension_ScrollView_create(JSContext *cx, uint32_t argc, jsval
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::ScrollView* ret = cocos2d::extension::ScrollView::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -6930,6 +7004,8 @@ bool js_cocos2dx_extension_ScrollView_create(JSContext *cx, uint32_t argc, jsval
 			if (!ok) { ok = true; break; }
 			cocos2d::extension::ScrollView* ret = cocos2d::extension::ScrollView::create(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -6982,6 +7058,8 @@ void js_cocos2d_extension_ScrollView_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -6992,9 +7070,8 @@ static bool js_cocos2d_extension_ScrollView_ctor(JSContext *cx, uint32_t argc, j
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::extension::ScrollView *nobj = new cocos2d::extension::ScrollView();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -7147,6 +7224,8 @@ bool js_cocos2dx_extension_TableViewCell_create(JSContext *cx, uint32_t argc, js
 	if (argc == 0) {
 		cocos2d::extension::TableViewCell* ret = cocos2d::extension::TableViewCell::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -7199,6 +7278,8 @@ void js_cocos2d_extension_TableViewCell_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -7209,9 +7290,8 @@ static bool js_cocos2d_extension_TableViewCell_ctor(JSContext *cx, uint32_t argc
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::extension::TableViewCell *nobj = new cocos2d::extension::TableViewCell();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -7592,6 +7672,8 @@ void js_cocos2d_extension_TableView_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -7602,9 +7684,8 @@ static bool js_cocos2d_extension_TableView_ctor(JSContext *cx, uint32_t argc, js
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::extension::TableView *nobj = new cocos2d::extension::TableView();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -8065,6 +8146,8 @@ bool js_cocos2dx_extension_EditBox_create(JSContext *cx, uint32_t argc, jsval *v
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_extension_EditBox_create : Error processing arguments");
 		cocos2d::extension::EditBox* ret = cocos2d::extension::EditBox::create(arg0, arg1);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -8101,6 +8184,8 @@ bool js_cocos2dx_extension_EditBox_create(JSContext *cx, uint32_t argc, jsval *v
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_extension_EditBox_create : Error processing arguments");
 		cocos2d::extension::EditBox* ret = cocos2d::extension::EditBox::create(arg0, arg1, arg2);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -8146,6 +8231,8 @@ bool js_cocos2dx_extension_EditBox_create(JSContext *cx, uint32_t argc, jsval *v
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_extension_EditBox_create : Error processing arguments");
 		cocos2d::extension::EditBox* ret = cocos2d::extension::EditBox::create(arg0, arg1, arg2, arg3);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -8198,6 +8285,8 @@ void js_cocos2d_extension_EditBox_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -8472,6 +8561,8 @@ void js_cocos2d_extension_EventAssetsManager_finalize(JSFreeOp *fop, JSObject *o
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -8656,6 +8747,8 @@ void js_cocos2d_extension_Manifest_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -8861,6 +8954,8 @@ bool js_cocos2dx_extension_AssetsManager_create(JSContext *cx, uint32_t argc, js
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_extension_AssetsManager_create : Error processing arguments");
 		cocos2d::extension::AssetsManager* ret = cocos2d::extension::AssetsManager::create(arg0, arg1);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -8917,6 +9012,8 @@ void js_cocos2d_extension_AssetsManager_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -9077,6 +9174,8 @@ bool js_cocos2dx_extension_EventListenerAssetsManager_create(JSContext *cx, uint
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_extension_EventListenerAssetsManager_create : Error processing arguments");
 		cocos2d::extension::EventListenerAssetsManager* ret = cocos2d::extension::EventListenerAssetsManager::create(arg0, arg1);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -9129,6 +9228,8 @@ void js_cocos2d_extension_EventListenerAssetsManager_finalize(JSFreeOp *fop, JSO
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }

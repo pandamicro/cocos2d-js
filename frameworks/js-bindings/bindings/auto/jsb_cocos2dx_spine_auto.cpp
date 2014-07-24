@@ -219,6 +219,8 @@ bool js_cocos2dx_spine_Skeleton_createWithFile(JSContext *cx, uint32_t argc, jsv
 			if (!ok) { ok = true; break; }
 			spine::Skeleton* ret = spine::Skeleton::createWithFile(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -245,6 +247,8 @@ bool js_cocos2dx_spine_Skeleton_createWithFile(JSContext *cx, uint32_t argc, jsv
 			if (!ok) { ok = true; break; }
 			spine::Skeleton* ret = spine::Skeleton::createWithFile(arg0, arg1, arg2);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -269,6 +273,8 @@ bool js_cocos2dx_spine_Skeleton_createWithFile(JSContext *cx, uint32_t argc, jsv
 			if (!ok) { ok = true; break; }
 			spine::Skeleton* ret = spine::Skeleton::createWithFile(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -295,6 +301,8 @@ bool js_cocos2dx_spine_Skeleton_createWithFile(JSContext *cx, uint32_t argc, jsv
 			if (!ok) { ok = true; break; }
 			spine::Skeleton* ret = spine::Skeleton::createWithFile(arg0, arg1, arg2);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -469,6 +477,8 @@ void js_spine_Skeleton_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -666,6 +676,8 @@ bool js_cocos2dx_spine_SkeletonAnimation_createWithFile(JSContext *cx, uint32_t 
 			if (!ok) { ok = true; break; }
 			spine::SkeletonAnimation* ret = spine::SkeletonAnimation::createWithFile(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -692,6 +704,8 @@ bool js_cocos2dx_spine_SkeletonAnimation_createWithFile(JSContext *cx, uint32_t 
 			if (!ok) { ok = true; break; }
 			spine::SkeletonAnimation* ret = spine::SkeletonAnimation::createWithFile(arg0, arg1, arg2);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -716,6 +730,8 @@ bool js_cocos2dx_spine_SkeletonAnimation_createWithFile(JSContext *cx, uint32_t 
 			if (!ok) { ok = true; break; }
 			spine::SkeletonAnimation* ret = spine::SkeletonAnimation::createWithFile(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -742,6 +758,8 @@ bool js_cocos2dx_spine_SkeletonAnimation_createWithFile(JSContext *cx, uint32_t 
 			if (!ok) { ok = true; break; }
 			spine::SkeletonAnimation* ret = spine::SkeletonAnimation::createWithFile(arg0, arg1, arg2);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -896,6 +914,8 @@ void js_spine_SkeletonAnimation_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }

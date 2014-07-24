@@ -458,6 +458,8 @@ void js_cocostudio_ActionObject_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -737,6 +739,8 @@ void js_cocostudio_ActionManagerEx_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -847,6 +851,8 @@ bool js_cocos2dx_studio_BaseData_create(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		cocostudio::BaseData* ret = cocostudio::BaseData::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -898,6 +904,8 @@ void js_cocostudio_BaseData_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -1024,6 +1032,8 @@ bool js_cocos2dx_studio_MovementData_create(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		cocostudio::MovementData* ret = cocostudio::MovementData::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -1075,6 +1085,8 @@ void js_cocostudio_MovementData_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -1218,6 +1230,8 @@ bool js_cocos2dx_studio_AnimationData_create(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		cocostudio::AnimationData* ret = cocostudio::AnimationData::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -1269,6 +1283,8 @@ void js_cocostudio_AnimationData_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -1660,6 +1676,8 @@ void js_cocostudio_ProcessBase_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -1908,6 +1926,8 @@ bool js_cocos2dx_studio_Tween_create(JSContext *cx, uint32_t argc, jsval *vp)
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_studio_Tween_create : Error processing arguments");
 		cocostudio::Tween* ret = cocostudio::Tween::create(arg0);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -1960,6 +1980,8 @@ void js_cocostudio_Tween_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -2117,6 +2139,8 @@ void js_cocostudio_ColliderBody_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -2380,6 +2404,8 @@ bool js_cocos2dx_studio_ColliderDetector_create(JSContext *cx, uint32_t argc, js
 			if (!ok) { ok = true; break; }
 			cocostudio::ColliderDetector* ret = cocostudio::ColliderDetector::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -2398,6 +2424,8 @@ bool js_cocos2dx_studio_ColliderDetector_create(JSContext *cx, uint32_t argc, js
 		if (argc == 0) {
 			cocostudio::ColliderDetector* ret = cocostudio::ColliderDetector::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -2428,6 +2456,8 @@ void js_cocostudio_ColliderDetector_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -2674,6 +2704,8 @@ bool js_cocos2dx_studio_DecorativeDisplay_create(JSContext *cx, uint32_t argc, j
 	if (argc == 0) {
 		cocostudio::DecorativeDisplay* ret = cocostudio::DecorativeDisplay::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -2704,6 +2736,8 @@ void js_cocostudio_DecorativeDisplay_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -3307,6 +3341,8 @@ bool js_cocos2dx_studio_DisplayManager_create(JSContext *cx, uint32_t argc, jsva
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_studio_DisplayManager_create : Error processing arguments");
 		cocostudio::DisplayManager* ret = cocostudio::DisplayManager::create(arg0);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -3358,6 +3394,8 @@ void js_cocostudio_DisplayManager_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -4185,6 +4223,8 @@ bool js_cocos2dx_studio_Bone_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocostudio::Bone* ret = cocostudio::Bone::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -4203,6 +4243,8 @@ bool js_cocos2dx_studio_Bone_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocostudio::Bone* ret = cocostudio::Bone::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -4255,6 +4297,8 @@ void js_cocostudio_Bone_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -4355,6 +4399,8 @@ bool js_cocos2dx_studio_BatchNode_create(JSContext *cx, uint32_t argc, jsval *vp
 	if (argc == 0) {
 		cocostudio::BatchNode* ret = cocostudio::BatchNode::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -4386,6 +4432,8 @@ void js_cocostudio_BatchNode_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -4890,6 +4938,8 @@ bool js_cocos2dx_studio_ArmatureAnimation_create(JSContext *cx, uint32_t argc, j
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_studio_ArmatureAnimation_create : Error processing arguments");
 		cocostudio::ArmatureAnimation* ret = cocostudio::ArmatureAnimation::create(arg0);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -4942,6 +4992,8 @@ void js_cocostudio_ArmatureAnimation_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -5522,6 +5574,8 @@ void js_cocostudio_ArmatureDataManager_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -6170,6 +6224,8 @@ bool js_cocos2dx_studio_Armature_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocostudio::Armature* ret = cocostudio::Armature::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -6188,6 +6244,8 @@ bool js_cocos2dx_studio_Armature_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocostudio::Armature* ret = cocostudio::Armature::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -6219,6 +6277,8 @@ bool js_cocos2dx_studio_Armature_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocostudio::Armature* ret = cocostudio::Armature::create(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -6271,6 +6331,8 @@ void js_cocostudio_Armature_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -6281,9 +6343,8 @@ static bool js_cocostudio_Armature_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocostudio::Armature *nobj = new cocostudio::Armature();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -6485,6 +6546,8 @@ bool js_cocos2dx_studio_Skin_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocostudio::Skin* ret = cocostudio::Skin::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -6503,6 +6566,8 @@ bool js_cocos2dx_studio_Skin_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocostudio::Skin* ret = cocostudio::Skin::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -6529,6 +6594,8 @@ bool js_cocos2dx_studio_Skin_createWithSpriteFrameName(JSContext *cx, uint32_t a
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_studio_Skin_createWithSpriteFrameName : Error processing arguments");
 		cocostudio::Skin* ret = cocostudio::Skin::createWithSpriteFrameName(arg0);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -6581,6 +6648,8 @@ void js_cocostudio_Skin_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -6901,6 +6970,8 @@ bool js_cocos2dx_studio_ComAttribute_create(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		cocostudio::ComAttribute* ret = cocostudio::ComAttribute::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -6932,6 +7003,8 @@ void js_cocostudio_ComAttribute_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -7546,6 +7619,8 @@ bool js_cocos2dx_studio_ComAudio_create(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		cocostudio::ComAudio* ret = cocostudio::ComAudio::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -7577,6 +7652,8 @@ void js_cocostudio_ComAudio_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -7940,6 +8017,8 @@ bool js_cocos2dx_studio_ComController_create(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		cocostudio::ComController* ret = cocostudio::ComController::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -7992,6 +8071,8 @@ void js_cocostudio_ComController_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -8002,9 +8083,8 @@ static bool js_cocostudio_ComController_ctor(JSContext *cx, uint32_t argc, jsval
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocostudio::ComController *nobj = new cocostudio::ComController();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -8144,6 +8224,8 @@ bool js_cocos2dx_studio_ComRender_create(JSContext *cx, uint32_t argc, jsval *vp
 			if (!ok) { ok = true; break; }
 			cocostudio::ComRender* ret = cocostudio::ComRender::create(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -8162,6 +8244,8 @@ bool js_cocos2dx_studio_ComRender_create(JSContext *cx, uint32_t argc, jsval *vp
 		if (argc == 0) {
 			cocostudio::ComRender* ret = cocostudio::ComRender::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -8193,6 +8277,8 @@ void js_cocostudio_ComRender_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -8420,6 +8506,8 @@ void js_cocostudio_GUIReader_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }

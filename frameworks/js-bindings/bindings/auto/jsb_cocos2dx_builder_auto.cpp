@@ -908,6 +908,8 @@ void js_cocosbuilder_CCBAnimationManager_finalize(JSFreeOp *fop, JSObject *obj) 
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -1619,6 +1621,8 @@ void js_cocosbuilder_CCBReader_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }

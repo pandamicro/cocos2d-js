@@ -136,6 +136,8 @@ bool js_cocos2dx_ui_LayoutParameter_create(JSContext *cx, uint32_t argc, jsval *
 	if (argc == 0) {
 		cocos2d::ui::LayoutParameter* ret = cocos2d::ui::LayoutParameter::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -187,6 +189,8 @@ void js_cocos2d_ui_LayoutParameter_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -296,6 +300,8 @@ bool js_cocos2dx_ui_LinearLayoutParameter_create(JSContext *cx, uint32_t argc, j
 	if (argc == 0) {
 		cocos2d::ui::LinearLayoutParameter* ret = cocos2d::ui::LinearLayoutParameter::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -348,6 +354,8 @@ void js_cocos2d_ui_LinearLayoutParameter_finalize(JSFreeOp *fop, JSObject *obj) 
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -529,6 +537,8 @@ bool js_cocos2dx_ui_RelativeLayoutParameter_create(JSContext *cx, uint32_t argc,
 	if (argc == 0) {
 		cocos2d::ui::RelativeLayoutParameter* ret = cocos2d::ui::RelativeLayoutParameter::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -581,6 +591,8 @@ void js_cocos2d_ui_RelativeLayoutParameter_finalize(JSFreeOp *fop, JSObject *obj
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -1776,6 +1788,8 @@ bool js_cocos2dx_ui_Widget_create(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		cocos2d::ui::Widget* ret = cocos2d::ui::Widget::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -1828,6 +1842,8 @@ void js_cocos2d_ui_Widget_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -1838,9 +1854,8 @@ static bool js_cocos2d_ui_Widget_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::Widget *nobj = new cocos2d::ui::Widget();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -2578,6 +2593,8 @@ bool js_cocos2dx_ui_Layout_create(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		cocos2d::ui::Layout* ret = cocos2d::ui::Layout::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -2599,6 +2616,8 @@ bool js_cocos2dx_ui_Layout_createInstance(JSContext *cx, uint32_t argc, jsval *v
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::Layout::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -2651,6 +2670,8 @@ void js_cocos2d_ui_Layout_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -2661,9 +2682,8 @@ static bool js_cocos2d_ui_Layout_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::Layout *nobj = new cocos2d::ui::Layout();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -3313,6 +3333,8 @@ bool js_cocos2dx_ui_Button_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::Button* ret = cocos2d::ui::Button::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -3336,6 +3358,8 @@ bool js_cocos2dx_ui_Button_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::Button* ret = cocos2d::ui::Button::create(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -3362,6 +3386,8 @@ bool js_cocos2dx_ui_Button_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::Button* ret = cocos2d::ui::Button::create(arg0, arg1, arg2);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -3391,6 +3417,8 @@ bool js_cocos2dx_ui_Button_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::Button* ret = cocos2d::ui::Button::create(arg0, arg1, arg2, arg3);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -3409,6 +3437,8 @@ bool js_cocos2dx_ui_Button_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocos2d::ui::Button* ret = cocos2d::ui::Button::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -3430,6 +3460,8 @@ bool js_cocos2dx_ui_Button_createInstance(JSContext *cx, uint32_t argc, jsval *v
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::Button::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -3482,6 +3514,8 @@ void js_cocos2d_ui_Button_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -3492,9 +3526,8 @@ static bool js_cocos2d_ui_Button_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::Button *nobj = new cocos2d::ui::Button();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -3892,6 +3925,8 @@ bool js_cocos2dx_ui_CheckBox_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::CheckBox* ret = cocos2d::ui::CheckBox::create(arg0, arg1, arg2, arg3, arg4);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -3927,6 +3962,8 @@ bool js_cocos2dx_ui_CheckBox_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::CheckBox* ret = cocos2d::ui::CheckBox::create(arg0, arg1, arg2, arg3, arg4, arg5);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -3945,6 +3982,8 @@ bool js_cocos2dx_ui_CheckBox_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocos2d::ui::CheckBox* ret = cocos2d::ui::CheckBox::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -3966,6 +4005,8 @@ bool js_cocos2dx_ui_CheckBox_createInstance(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::CheckBox::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -4018,6 +4059,8 @@ void js_cocos2d_ui_CheckBox_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -4028,9 +4071,8 @@ static bool js_cocos2d_ui_CheckBox_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::CheckBox *nobj = new cocos2d::ui::CheckBox();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -4277,6 +4319,8 @@ bool js_cocos2dx_ui_ImageView_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::ImageView* ret = cocos2d::ui::ImageView::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -4300,6 +4344,8 @@ bool js_cocos2dx_ui_ImageView_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::ImageView* ret = cocos2d::ui::ImageView::create(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -4318,6 +4364,8 @@ bool js_cocos2dx_ui_ImageView_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocos2d::ui::ImageView* ret = cocos2d::ui::ImageView::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -4339,6 +4387,8 @@ bool js_cocos2dx_ui_ImageView_createInstance(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::ImageView::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -4391,6 +4441,8 @@ void js_cocos2d_ui_ImageView_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -4401,9 +4453,8 @@ static bool js_cocos2d_ui_ImageView_ctor(JSContext *cx, uint32_t argc, jsval *vp
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::ImageView *nobj = new cocos2d::ui::ImageView();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -4927,6 +4978,8 @@ bool js_cocos2dx_ui_Text_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::Text* ret = cocos2d::ui::Text::create(arg0, arg1, arg2);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -4945,6 +4998,8 @@ bool js_cocos2dx_ui_Text_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocos2d::ui::Text* ret = cocos2d::ui::Text::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -4966,6 +5021,8 @@ bool js_cocos2dx_ui_Text_createInstance(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::Text::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -5018,6 +5075,8 @@ void js_cocos2d_ui_Text_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -5028,9 +5087,8 @@ static bool js_cocos2d_ui_Text_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::Text *nobj = new cocos2d::ui::Text();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -5240,6 +5298,8 @@ bool js_cocos2dx_ui_TextAtlas_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::TextAtlas* ret = cocos2d::ui::TextAtlas::create(arg0, arg1, arg2, arg3, arg4);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -5258,6 +5318,8 @@ bool js_cocos2dx_ui_TextAtlas_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocos2d::ui::TextAtlas* ret = cocos2d::ui::TextAtlas::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -5279,6 +5341,8 @@ bool js_cocos2dx_ui_TextAtlas_createInstance(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::TextAtlas::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -5331,6 +5395,8 @@ void js_cocos2d_ui_TextAtlas_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -5341,9 +5407,8 @@ static bool js_cocos2d_ui_TextAtlas_ctor(JSContext *cx, uint32_t argc, jsval *vp
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::TextAtlas *nobj = new cocos2d::ui::TextAtlas();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -5606,6 +5671,8 @@ bool js_cocos2dx_ui_LoadingBar_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::LoadingBar* ret = cocos2d::ui::LoadingBar::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -5629,6 +5696,8 @@ bool js_cocos2dx_ui_LoadingBar_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::LoadingBar* ret = cocos2d::ui::LoadingBar::create(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -5647,6 +5716,8 @@ bool js_cocos2dx_ui_LoadingBar_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocos2d::ui::LoadingBar* ret = cocos2d::ui::LoadingBar::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -5668,6 +5739,8 @@ bool js_cocos2dx_ui_LoadingBar_createInstance(JSContext *cx, uint32_t argc, jsva
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::LoadingBar::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -5720,6 +5793,8 @@ void js_cocos2d_ui_LoadingBar_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -5730,9 +5805,8 @@ static bool js_cocos2d_ui_LoadingBar_ctor(JSContext *cx, uint32_t argc, jsval *v
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::LoadingBar *nobj = new cocos2d::ui::LoadingBar();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -6414,6 +6488,8 @@ bool js_cocos2dx_ui_ScrollView_create(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		cocos2d::ui::ScrollView* ret = cocos2d::ui::ScrollView::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -6435,6 +6511,8 @@ bool js_cocos2dx_ui_ScrollView_createInstance(JSContext *cx, uint32_t argc, jsva
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::ScrollView::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -6487,6 +6565,8 @@ void js_cocos2d_ui_ScrollView_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -6497,9 +6577,8 @@ static bool js_cocos2d_ui_ScrollView_ctor(JSContext *cx, uint32_t argc, jsval *v
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::ScrollView *nobj = new cocos2d::ui::ScrollView();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -6965,6 +7044,8 @@ bool js_cocos2dx_ui_ListView_create(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		cocos2d::ui::ListView* ret = cocos2d::ui::ListView::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -6986,6 +7067,8 @@ bool js_cocos2dx_ui_ListView_createInstance(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::ListView::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -7038,6 +7121,8 @@ void js_cocos2d_ui_ListView_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -7048,9 +7133,8 @@ static bool js_cocos2d_ui_ListView_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::ListView *nobj = new cocos2d::ui::ListView();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -7497,6 +7581,8 @@ bool js_cocos2dx_ui_Slider_create(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		cocos2d::ui::Slider* ret = cocos2d::ui::Slider::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -7518,6 +7604,8 @@ bool js_cocos2dx_ui_Slider_createInstance(JSContext *cx, uint32_t argc, jsval *v
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::Slider::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -7570,6 +7658,8 @@ void js_cocos2d_ui_Slider_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -7580,9 +7670,8 @@ static bool js_cocos2d_ui_Slider_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::Slider *nobj = new cocos2d::ui::Slider();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -8313,6 +8402,8 @@ bool js_cocos2dx_ui_TextField_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::TextField* ret = cocos2d::ui::TextField::create(arg0, arg1, arg2);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -8331,6 +8422,8 @@ bool js_cocos2dx_ui_TextField_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocos2d::ui::TextField* ret = cocos2d::ui::TextField::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -8352,6 +8445,8 @@ bool js_cocos2dx_ui_TextField_createInstance(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::TextField::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -8404,6 +8499,8 @@ void js_cocos2d_ui_TextField_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -8414,9 +8511,8 @@ static bool js_cocos2d_ui_TextField_ctor(JSContext *cx, uint32_t argc, jsval *vp
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::TextField *nobj = new cocos2d::ui::TextField();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -8607,6 +8703,8 @@ bool js_cocos2dx_ui_TextBMFont_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::TextBMFont* ret = cocos2d::ui::TextBMFont::create(arg0, arg1);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -8625,6 +8723,8 @@ bool js_cocos2dx_ui_TextBMFont_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocos2d::ui::TextBMFont* ret = cocos2d::ui::TextBMFont::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -8646,6 +8746,8 @@ bool js_cocos2dx_ui_TextBMFont_createInstance(JSContext *cx, uint32_t argc, jsva
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::TextBMFont::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -8698,6 +8800,8 @@ void js_cocos2d_ui_TextBMFont_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -8708,9 +8812,8 @@ static bool js_cocos2d_ui_TextBMFont_ctor(JSContext *cx, uint32_t argc, jsval *v
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::TextBMFont *nobj = new cocos2d::ui::TextBMFont();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -9019,6 +9122,8 @@ bool js_cocos2dx_ui_PageView_create(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		cocos2d::ui::PageView* ret = cocos2d::ui::PageView::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -9040,6 +9145,8 @@ bool js_cocos2dx_ui_PageView_createInstance(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		cocos2d::Ref* ret = cocos2d::ui::PageView::createInstance();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -9092,6 +9199,8 @@ void js_cocos2d_ui_PageView_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -9102,9 +9211,8 @@ static bool js_cocos2d_ui_PageView_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::PageView *nobj = new cocos2d::ui::PageView();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -9424,6 +9532,8 @@ void js_cocos2d_ui_RichElement_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -9434,9 +9544,8 @@ static bool js_cocos2d_ui_RichElement_ctor(JSContext *cx, uint32_t argc, jsval *
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::RichElement *nobj = new cocos2d::ui::RichElement();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -9553,6 +9662,8 @@ bool js_cocos2dx_ui_RichElementText_create(JSContext *cx, uint32_t argc, jsval *
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_ui_RichElementText_create : Error processing arguments");
 		cocos2d::ui::RichElementText* ret = cocos2d::ui::RichElementText::create(arg0, arg1, arg2, arg3, arg4, arg5);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -9605,6 +9716,8 @@ void js_cocos2d_ui_RichElementText_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -9615,9 +9728,8 @@ static bool js_cocos2d_ui_RichElementText_ctor(JSContext *cx, uint32_t argc, jsv
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::RichElementText *nobj = new cocos2d::ui::RichElementText();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -9729,6 +9841,8 @@ bool js_cocos2dx_ui_RichElementImage_create(JSContext *cx, uint32_t argc, jsval 
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_ui_RichElementImage_create : Error processing arguments");
 		cocos2d::ui::RichElementImage* ret = cocos2d::ui::RichElementImage::create(arg0, arg1, arg2, arg3);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -9781,6 +9895,8 @@ void js_cocos2d_ui_RichElementImage_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -9791,9 +9907,8 @@ static bool js_cocos2d_ui_RichElementImage_ctor(JSContext *cx, uint32_t argc, js
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::RichElementImage *nobj = new cocos2d::ui::RichElementImage();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -9919,6 +10034,8 @@ bool js_cocos2dx_ui_RichElementCustomNode_create(JSContext *cx, uint32_t argc, j
 		JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_ui_RichElementCustomNode_create : Error processing arguments");
 		cocos2d::ui::RichElementCustomNode* ret = cocos2d::ui::RichElementCustomNode::create(arg0, arg1, arg2, arg3);
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -9971,6 +10088,8 @@ void js_cocos2d_ui_RichElementCustomNode_finalize(JSFreeOp *fop, JSObject *obj) 
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -9981,9 +10100,8 @@ static bool js_cocos2d_ui_RichElementCustomNode_ctor(JSContext *cx, uint32_t arg
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::RichElementCustomNode *nobj = new cocos2d::ui::RichElementCustomNode();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -10230,6 +10348,8 @@ bool js_cocos2dx_ui_RichText_create(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		cocos2d::ui::RichText* ret = cocos2d::ui::RichText::create();
 		ret->retain();
+		retainCount++;
+		CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 		jsval jsret = JSVAL_NULL;
 		do {
 		if (ret) {
@@ -10282,6 +10402,8 @@ void js_cocos2d_ui_RichText_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -10292,9 +10414,8 @@ static bool js_cocos2d_ui_RichText_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::RichText *nobj = new cocos2d::ui::RichText();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -10402,6 +10523,8 @@ bool js_cocos2dx_ui_HBox_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::HBox* ret = cocos2d::ui::HBox::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -10420,6 +10543,8 @@ bool js_cocos2dx_ui_HBox_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocos2d::ui::HBox* ret = cocos2d::ui::HBox::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -10472,6 +10597,8 @@ void js_cocos2d_ui_HBox_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -10482,9 +10609,8 @@ static bool js_cocos2d_ui_HBox_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::HBox *nobj = new cocos2d::ui::HBox();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -10586,6 +10712,8 @@ bool js_cocos2dx_ui_VBox_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::VBox* ret = cocos2d::ui::VBox::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -10604,6 +10732,8 @@ bool js_cocos2dx_ui_VBox_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocos2d::ui::VBox* ret = cocos2d::ui::VBox::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -10656,6 +10786,8 @@ void js_cocos2d_ui_VBox_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -10666,9 +10798,8 @@ static bool js_cocos2d_ui_VBox_ctor(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::VBox *nobj = new cocos2d::ui::VBox();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
@@ -10770,6 +10901,8 @@ bool js_cocos2dx_ui_RelativeBox_create(JSContext *cx, uint32_t argc, jsval *vp)
 			if (!ok) { ok = true; break; }
 			cocos2d::ui::RelativeBox* ret = cocos2d::ui::RelativeBox::create(arg0);
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -10788,6 +10921,8 @@ bool js_cocos2dx_ui_RelativeBox_create(JSContext *cx, uint32_t argc, jsval *vp)
 		if (argc == 0) {
 			cocos2d::ui::RelativeBox* ret = cocos2d::ui::RelativeBox::create();
             ret->retain();
+            retainCount++;
+		    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, ret->getReferenceCount());
 			jsval jsret = JSVAL_NULL;
 			do {
 				if (ret) {
@@ -10840,6 +10975,8 @@ void js_cocos2d_ui_RelativeBox_finalize(JSFreeOp *fop, JSObject *obj) {
         if (nobj) {
             jsb_remove_proxy(nproxy, jsproxy);
             nobj->release();
+            retainCount--;
+            CCLOG("------RELEASED------ %d ref count: %d", retainCount, nobj->getReferenceCount());
         }
         else jsb_remove_proxy(nullptr, jsproxy);
     }
@@ -10850,9 +10987,8 @@ static bool js_cocos2d_ui_RelativeBox_ctor(JSContext *cx, uint32_t argc, jsval *
     jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
     cocos2d::ui::RelativeBox *nobj = new cocos2d::ui::RelativeBox();
-    if (nobj) {
-        nobj->autorelease();
-    }
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, nobj->getReferenceCount());
     js_proxy_t* p = jsb_new_proxy(nobj, obj);
     bool isFound = false;
     if (JS_HasProperty(cx, obj, "_ctor", &isFound))
