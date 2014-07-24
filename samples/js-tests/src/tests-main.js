@@ -200,7 +200,9 @@ var TestController = cc.LayerGradient.extend({
         history && history.go(-1);
     },
     onToggleAutoTest:function() {
-        autoTestEnabled = !autoTestEnabled;
+        //autoTestEnabled = !autoTestEnabled;
+        cc.log("GARBAGE COLLECTION");
+        sys.garbageCollect();
     },
 
     moveMenu:function(delta) {
