@@ -1424,6 +1424,20 @@ cc.Class = function(){};
 cc.Class.extend = function (prop) {
     var _super = this.prototype;
 
+    // The dummy class constructor
+    function Class() {
+        // All construction is actually done in the init method
+        if (!initializing) {
+            if (!this.ctor) {
+                if (this.__nativeObj)
+                    cc.log("No ctor function found! Please check whether `classes_need_extend` section in `ini` file like which in `tools/tojs/cocos2dx.ini`");
+            }
+            else {
+                this.ctor.apply(this, arguments);
+            }
+        }
+    }
+
     // Instantiate a base class (but only create the instance,
     // don't run the init constructor)
     initializing = true;
@@ -1453,20 +1467,6 @@ cc.Class.extend = function (prop) {
                 };
             })(name, prop[name]) :
             prop[name];
-    }
-
-    // The dummy class constructor
-    function Class() {
-        // All construction is actually done in the init method
-        if (!initializing) {
-            if (!this.ctor) {
-                if (this.__nativeObj)
-                    cc.log("No ctor function found! Please check whether `classes_need_extend` section in `ini` file like which in `tools/tojs/cocos2dx.ini`");
-            }
-            else {
-                this.ctor.apply(this, arguments);
-            }
-        }
     }
 
     var classId = ClassManager.getNewID();

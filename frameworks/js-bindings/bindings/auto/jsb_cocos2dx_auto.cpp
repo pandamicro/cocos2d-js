@@ -48192,6 +48192,8 @@ bool js_cocos2dx_Sprite_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 	jsval *argv = JS_ARGV(cx, vp);
 	bool ok = true;
     cocos2d::Sprite* cobj = new cocos2d::Sprite();
+    retainCount++;
+    CCLOG("++++++RETAINED++++++ %d ref count: %d", retainCount, cobj->getReferenceCount());
     TypeTest<cocos2d::Sprite> t;
     js_type_class_t *typeClass = nullptr;
     std::string typeName = t.s_name();

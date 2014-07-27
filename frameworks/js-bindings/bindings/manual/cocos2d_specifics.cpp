@@ -4294,6 +4294,50 @@ bool js_cocos2dx_Label_setTTFConfig(JSContext *cx, uint32_t argc, jsval *vp)
     return false;
 }
 
+void js_cocos2d_common_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (User class)", obj);
+}
+
+bool js_create_prototype(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JSClass  *js_class;
+    JSObject *js_prototype;
+    
+    jsb_cocos2d_LayerGradient_class = (JSClass *)calloc(1, sizeof(JSClass));
+	jsb_cocos2d_LayerGradient_class->name = "";
+	jsb_cocos2d_LayerGradient_class->addProperty = JS_PropertyStub;
+	jsb_cocos2d_LayerGradient_class->delProperty = JS_DeletePropertyStub;
+	jsb_cocos2d_LayerGradient_class->getProperty = JS_PropertyStub;
+	jsb_cocos2d_LayerGradient_class->setProperty = JS_StrictPropertyStub;
+	jsb_cocos2d_LayerGradient_class->enumerate = JS_EnumerateStub;
+	jsb_cocos2d_LayerGradient_class->resolve = JS_ResolveStub;
+	jsb_cocos2d_LayerGradient_class->convert = JS_ConvertStub;
+	jsb_cocos2d_LayerGradient_class->finalize = js_cocos2d_common_finalize;
+	jsb_cocos2d_LayerGradient_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+    
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, JSOP_NULLWRAPPER, JSOP_NULLWRAPPER}
+	};
+    
+	static JSFunctionSpec funcs[] = {
+        JS_FS_END
+	};
+    
+	static JSFunctionSpec st_funcs[] = {
+		JS_FS_END
+	};
+    
+	jsb_cocos2d_LayerGradient_prototype = JS_InitClass(
+                                                       cx, global,
+                                                       jsb_cocos2d_LayerColor_prototype,
+                                                       jsb_cocos2d_LayerGradient_class,
+                                                       js_cocos2dx_LayerGradient_constructor, 0, // constructor
+                                                       properties,
+                                                       funcs,
+                                                       NULL, // no static properties
+                                                       st_funcs);
+}
+
 void register_cocos2dx_js_extensions(JSContext* cx, JSObject* global)
 {
 	// first, try to get the ns
@@ -4470,7 +4514,7 @@ void register_cocos2dx_js_extensions(JSContext* cx, JSObject* global)
 	JS_DefineFunction(cx, tmpObj, "create", js_cocos2dx_CCGLProgram_create, 1, JSPROP_READONLY | JSPROP_PERMANENT);
     JS_DefineFunction(cx, tmpObj, "createWithString", js_cocos2dx_CCGLProgram_createWithString, 1, JSPROP_READONLY | JSPROP_PERMANENT);
 
-     tmpObj = JSVAL_TO_OBJECT(anonEvaluate(cx, global, "(function () { return this; })()"));
+    tmpObj = JSVAL_TO_OBJECT(anonEvaluate(cx, global, "(function () { return this; })()"));
     JS_DefineFunction(cx, tmpObj, "garbageCollect", js_forceGC, 1, JSPROP_READONLY | JSPROP_PERMANENT);
 
     JS_DefineFunction(cx, ns, "glEnableVertexAttribs", js_cocos2dx_ccGLEnableVertexAttribs, 1, JSPROP_READONLY | JSPROP_PERMANENT);
