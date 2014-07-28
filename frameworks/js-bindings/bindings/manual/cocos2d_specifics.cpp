@@ -4298,44 +4298,66 @@ void js_cocos2d_common_finalize(JSFreeOp *fop, JSObject *obj) {
     CCLOGINFO("jsbindings: finalizing JS object %p (User class)", obj);
 }
 
-bool js_create_prototype(JSContext *cx, uint32_t argc, jsval *vp)
+// jsb.create_prototype("UserClassName", superProto);
+bool jsb_create_prototype(JSContext *cx, uint32_t argc, jsval *vp)
 {
-    JSClass  *js_class;
-    JSObject *js_prototype;
+    jsval *argv = JS_ARGV(cx, vp);
+    std::string className;
+    JSObject *super_prototype;
     
-    jsb_cocos2d_LayerGradient_class = (JSClass *)calloc(1, sizeof(JSClass));
-	jsb_cocos2d_LayerGradient_class->name = "";
-	jsb_cocos2d_LayerGradient_class->addProperty = JS_PropertyStub;
-	jsb_cocos2d_LayerGradient_class->delProperty = JS_DeletePropertyStub;
-	jsb_cocos2d_LayerGradient_class->getProperty = JS_PropertyStub;
-	jsb_cocos2d_LayerGradient_class->setProperty = JS_StrictPropertyStub;
-	jsb_cocos2d_LayerGradient_class->enumerate = JS_EnumerateStub;
-	jsb_cocos2d_LayerGradient_class->resolve = JS_ResolveStub;
-	jsb_cocos2d_LayerGradient_class->convert = JS_ConvertStub;
-	jsb_cocos2d_LayerGradient_class->finalize = js_cocos2d_common_finalize;
-	jsb_cocos2d_LayerGradient_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+    if (!jsval_to_std_string(cx, argv[0], &className))
+    {
+        return false;
+    }
+    super_prototype = JSVAL_TO_OBJECT(argv[1]);
+    const JSClass *super_class = JS_GetClass(super_prototype);
     
-	static JSPropertySpec properties[] = {
-		{0, 0, 0, JSOP_NULLWRAPPER, JSOP_NULLWRAPPER}
-	};
+    JSObject *global = ScriptingCore::getInstance()->getGlobalObject();
+    JSClass *js_class;
     
-	static JSFunctionSpec funcs[] = {
-        JS_FS_END
-	};
+    js_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_class->name = className.c_str();
+	js_class->addProperty = JS_PropertyStub;
+	js_class->delProperty = JS_DeletePropertyStub;
+	js_class->getProperty = JS_PropertyStub;
+	js_class->setProperty = JS_StrictPropertyStub;
+	js_class->enumerate = JS_EnumerateStub;
+	js_class->resolve = JS_ResolveStub;
+	js_class->convert = JS_ConvertStub;
+    // Important!
+	js_class->finalize = super_class->finalize;
+	js_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
     
-	static JSFunctionSpec st_funcs[] = {
-		JS_FS_END
-	};
+	JSObject *jsb_prototype = JS_InitClass(
+        cx, global,
+        super_prototype,
+        js_class,
+        NULL, 0, // constructor
+        NULL, NULL, NULL, NULL);
     
-	jsb_cocos2d_LayerGradient_prototype = JS_InitClass(
-                                                       cx, global,
-                                                       jsb_cocos2d_LayerColor_prototype,
-                                                       jsb_cocos2d_LayerGradient_class,
-                                                       js_cocos2dx_LayerGradient_constructor, 0, // constructor
-                                                       properties,
-                                                       funcs,
-                                                       NULL, // no static properties
-                                                       st_funcs);
+    jsval jsret = JSVAL_NULL;
+    if (jsb_prototype) {
+        jsret = OBJECT_TO_JSVAL(jsb_prototype);
+    }
+    JS_SET_RVAL(cx, vp, jsret);
+    
+    return true;
+}
+
+bool jsb_check_finalize(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+    JSObject *prototype;
+    prototype = JSVAL_TO_OBJECT(argv[0]);
+    const JSClass *the_class = JS_GetClass(prototype);
+    
+    if (the_class->finalize) {
+        JS_SET_RVAL(cx, vp, JSVAL_TRUE);
+    }
+    else {
+        JS_SET_RVAL(cx, vp, JSVAL_FALSE);
+    }
+    return true;
 }
 
 void register_cocos2dx_js_extensions(JSContext* cx, JSObject* global)
@@ -4343,6 +4365,7 @@ void register_cocos2dx_js_extensions(JSContext* cx, JSObject* global)
 	// first, try to get the ns
     JS::RootedValue nsval(cx);
     JS::RootedObject ns(cx);
+    JS::RootedObject jsb_obj(cx);
 	JS_GetProperty(cx, global, "cc", &nsval);
 	if (nsval == JSVAL_VOID) {
 		ns = JS_NewObject(cx, NULL, NULL, NULL);
@@ -4350,6 +4373,14 @@ void register_cocos2dx_js_extensions(JSContext* cx, JSObject* global)
 		JS_SetProperty(cx, global, "cc", nsval);
 	} else {
 		JS_ValueToObject(cx, nsval, &ns);
+	}
+    JS_GetProperty(cx, global, "jsb", &nsval);
+	if (nsval == JSVAL_VOID) {
+		jsb_obj = JS_NewObject(cx, NULL, NULL, NULL);
+		nsval = OBJECT_TO_JSVAL(jsb_obj);
+		JS_SetProperty(cx, global, "jsb", nsval);
+	} else {
+		JS_ValueToObject(cx, nsval, &jsb_obj);
 	}
 
 	JS_DefineFunction(cx, global, "__getPlatform", js_platform, 0, JSPROP_READONLY | JSPROP_PERMANENT);
@@ -4535,4 +4566,7 @@ void register_cocos2dx_js_extensions(JSContext* cx, JSObject* global)
     JS_DefineFunction(cx, ns, "pClamp", js_cocos2dx_ccpClamp, 2, JSPROP_READONLY | JSPROP_PERMANENT);
 	JS_DefineFunction(cx, ns, "pLengthSQ", js_cocos2dx_ccpLengthSQ, 1, JSPROP_READONLY | JSPROP_PERMANENT);
     JS_DefineFunction(cx, ns, "pLength", js_cocos2dx_ccpLength, 1, JSPROP_READONLY | JSPROP_PERMANENT);
+    
+    JS_DefineFunction(cx, jsb_obj, "create_prototype", jsb_create_prototype, 2, JSPROP_READONLY | JSPROP_PERMANENT);
+    JS_DefineFunction(cx, jsb_obj, "check_finalize", jsb_check_finalize, 1, JSPROP_READONLY | JSPROP_PERMANENT);
 }

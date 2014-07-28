@@ -26,6 +26,8 @@
  ****************************************************************************/
 
 cc.game.onStart = function(){
+    jsb.check_finalize(CrashTest.prototype);
+
     cc.LoaderScene.preload(g_resources, function () {
 
         if(window.sideIndexBar && typeof sideIndexBar.start === 'function'){

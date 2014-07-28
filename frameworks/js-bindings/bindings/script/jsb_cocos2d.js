@@ -1441,7 +1441,8 @@ cc.Class.extend = function (prop) {
     // Instantiate a base class (but only create the instance,
     // don't run the init constructor)
     initializing = true;
-    var prototype = new this();
+    //var prototype = new this();
+    var prototype = jsb.create_prototype("", _super);
     initializing = false;
     fnTest = /xyz/.test(function(){xyz;}) ? /\b_super\b/ : /.*/;
 
