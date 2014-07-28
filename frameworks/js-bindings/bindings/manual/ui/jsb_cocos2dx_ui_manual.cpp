@@ -381,6 +381,21 @@ static bool js_cocos2dx_LayoutParameter_getMargin(JSContext *cx, uint32_t argc, 
     return false;
 }
 
+bool js_cocos2dx_Widget_onSizeChanged(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *thisObj = JS_THIS_OBJECT(cx, vp);
+	if (thisObj) {
+		js_proxy_t *proxy = jsb_get_js_proxy(thisObj);
+		if (proxy) {
+            ScriptingCore::getInstance()->setCalledFromScript(true);
+			static_cast<Widget*>(proxy->ptr)->onSizeChanged();
+			return true;
+		}
+	}
+    JS_ReportError(cx, "Invalid Native Object.");
+	return false;
+}
+
 extern JSObject* jsb_cocos2d_ui_Widget_prototype;
 extern JSObject* jsb_cocos2d_ui_CheckBox_prototype;
 extern JSObject* jsb_cocos2d_ui_Slider_prototype;
@@ -393,6 +408,7 @@ extern JSObject* jsb_cocos2d_ui_ListView_prototype;
 void register_all_cocos2dx_ui_manual(JSContext* cx, JSObject* global)
 {
     JS_DefineFunction(cx, jsb_cocos2d_ui_Widget_prototype, "addTouchEventListener", js_cocos2dx_UIWidget_addTouchEventListener, 2, JSPROP_ENUMERATE | JSPROP_PERMANENT);
+    JS_DefineFunction(cx, jsb_cocos2d_ui_Widget_prototype, "onSizeChanged", js_cocos2dx_Widget_onSizeChanged, 0, JSPROP_ENUMERATE | JSPROP_PERMANENT);
 
     JS_DefineFunction(cx, jsb_cocos2d_ui_CheckBox_prototype, "addEventListenerCheckBox", js_cocos2dx_UICheckBox_addEventListener, 2, JSPROP_ENUMERATE | JSPROP_PERMANENT);
 
