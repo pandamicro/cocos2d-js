@@ -1354,6 +1354,23 @@ int ScriptingCore::sendEvent(ScriptEvent* evt)
     return 0;
 }
 
+bool ScriptingCore::executeFunctionFromNative(cocos2d::Ref *owner, const std::string func)
+{
+    js_proxy_t * p;
+    JS_GET_PROXY(p, owner);
+    if (!p)
+    {
+        CCLOG("Failed to get proxy for this object");
+        return false;
+    }
+    
+    jsval thisObj = OBJECT_TO_JSVAL(p->obj);
+    
+    JSAutoCompartment ac(_cx, _debugGlobal);
+    executeFunctionWithOwner(thisObj, func.c_str());
+    return true;
+}
+
 bool ScriptingCore::parseConfig(ConfigType type, const std::string &str)
 {
     jsval args[2];
