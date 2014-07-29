@@ -2175,7 +2175,7 @@ extern JSClass  *jsb_cocos2d_LayerGradient_class;
 extern JSObject *jsb_cocos2d_LayerGradient_prototype;
 
 bool js_cocos2dx_LayerGradient_constructor(JSContext *cx, uint32_t argc, jsval *vp);
-void js_cocos2dx_LayerGradient_finalize(JSContext *cx, JSObject *obj);
+void js_cocos2d_LayerGradient_finalize(JSFreeOp *fop, JSObject *obj);
 void js_register_cocos2dx_LayerGradient(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 bool js_cocos2dx_LayerGradient_getStartColor(JSContext *cx, uint32_t argc, jsval *vp);

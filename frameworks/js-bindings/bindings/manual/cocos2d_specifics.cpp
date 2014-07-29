@@ -4304,19 +4304,26 @@ bool jsb_create_prototype(JSContext *cx, uint32_t argc, jsval *vp)
     jsval *argv = JS_ARGV(cx, vp);
     std::string className;
     JSObject *super_prototype;
+    //JSObject *constructor;
     
     if (!jsval_to_std_string(cx, argv[0], &className))
     {
         return false;
     }
+    
     super_prototype = JSVAL_TO_OBJECT(argv[1]);
+    //constructor = JSVAL_TO_OBJECT(argv[2]);
     const JSClass *super_class = JS_GetClass(super_prototype);
     
-    JSObject *global = ScriptingCore::getInstance()->getGlobalObject();
     JSClass *js_class;
-    
     js_class = (JSClass *)calloc(1, sizeof(JSClass));
-	js_class->name = className.c_str();
+	
+    if (className.size() != 0) {
+        js_class->name = "CrashTest";
+    }
+    else {
+        js_class->name = "";
+    }
 	js_class->addProperty = JS_PropertyStub;
 	js_class->delProperty = JS_DeletePropertyStub;
 	js_class->getProperty = JS_PropertyStub;
@@ -4325,15 +4332,25 @@ bool jsb_create_prototype(JSContext *cx, uint32_t argc, jsval *vp)
 	js_class->resolve = JS_ResolveStub;
 	js_class->convert = JS_ConvertStub;
     // Important!
-	js_class->finalize = super_class->finalize;
+    if (className.size() != 0) {
+        js_class->finalize = js_cocos2d_LayerGradient_finalize;
+    }
+    else {
+        js_class->finalize = super_class->finalize;
+    }
+	
 	js_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
     
-	JSObject *jsb_prototype = JS_InitClass(
-        cx, global,
-        super_prototype,
-        js_class,
-        NULL, 0, // constructor
-        NULL, NULL, NULL, NULL);
+    JSObject *jsb_prototype = JS_NewObject(cx, js_class, super_prototype, NULL);
+    
+//    JSObject *global = ScriptingCore::getInstance()->getGlobalObject();
+//	JSObject *jsb_prototype = JS_InitClass(
+//        cx, global,
+//        super_prototype,
+//        js_class,
+//        NULL, 0, // constructor
+//        NULL, NULL, NULL, NULL);
+    //JS_LinkConstructorAndPrototype(cx, constructor, jsb_prototype);
     
     jsval jsret = JSVAL_NULL;
     if (jsb_prototype) {
@@ -4347,9 +4364,8 @@ bool jsb_create_prototype(JSContext *cx, uint32_t argc, jsval *vp)
 bool jsb_check_finalize(JSContext *cx, uint32_t argc, jsval *vp)
 {
     jsval *argv = JS_ARGV(cx, vp);
-    JSObject *prototype;
-    prototype = JSVAL_TO_OBJECT(argv[0]);
-    const JSClass *the_class = JS_GetClass(prototype);
+    JSObject *obj = JSVAL_TO_OBJECT(argv[0]);
+    const JSClass *the_class = JS_GetClass(obj);
     
     if (the_class->finalize) {
         JS_SET_RVAL(cx, vp, JSVAL_TRUE);

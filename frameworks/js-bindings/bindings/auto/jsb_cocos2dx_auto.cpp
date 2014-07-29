@@ -409,7 +409,7 @@ bool js_cocos2dx_Configuration_getInstance(JSContext *cx, uint32_t argc, jsval *
 
 
 void js_cocos2d_Configuration_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Configuration)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Configuration)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -585,7 +585,7 @@ bool js_cocos2dx_EventListener_checkAvailable(JSContext *cx, uint32_t argc, jsva
 
 
 void js_cocos2d_EventListener_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventListener)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventListener)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -762,7 +762,7 @@ bool js_cocos2dx_Event_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_Event_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Event)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Event)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -1285,7 +1285,7 @@ bool js_cocos2dx_EventDispatcher_constructor(JSContext *cx, uint32_t argc, jsval
 
 
 void js_cocos2d_EventDispatcher_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventDispatcher)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventDispatcher)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -1555,7 +1555,7 @@ bool js_cocos2dx_Touch_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_Touch_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Touch)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Touch)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -1699,7 +1699,7 @@ bool js_cocos2dx_EventTouch_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Event_prototype;
 
 void js_cocos2d_EventTouch_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventTouch)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventTouch)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -1804,7 +1804,7 @@ bool js_cocos2dx_EventKeyboard_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_Event_prototype;
 
 void js_cocos2d_EventKeyboard_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventKeyboard)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventKeyboard)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -2589,7 +2589,7 @@ bool js_cocos2dx_Texture2D_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_Texture2D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Texture2D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Texture2D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -5884,7 +5884,7 @@ bool js_cocos2dx_Node_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_Node_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Node)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Node)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -6136,7 +6136,7 @@ bool js_cocos2dx___NodeRGBA_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d___NodeRGBA_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (__NodeRGBA)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (__NodeRGBA)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -6537,7 +6537,7 @@ bool js_cocos2dx_AtlasNode_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_AtlasNode_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (AtlasNode)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (AtlasNode)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -6876,7 +6876,7 @@ bool js_cocos2dx_LabelAtlas_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_AtlasNode_prototype;
 
 void js_cocos2d_LabelAtlas_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (LabelAtlas)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (LabelAtlas)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -8175,7 +8175,7 @@ bool js_cocos2dx_Director_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_Director_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Director)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Director)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -8404,7 +8404,7 @@ bool js_cocos2dx_Scheduler_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_Scheduler_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Scheduler)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Scheduler)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -9044,7 +9044,7 @@ bool js_cocos2dx_FileUtils_getInstance(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_FileUtils_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FileUtils)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FileUtils)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -9222,7 +9222,7 @@ bool js_cocos2dx_EventListenerTouchOneByOne_constructor(JSContext *cx, uint32_t 
 extern JSObject *jsb_cocos2d_EventListener_prototype;
 
 void js_cocos2d_EventListenerTouchOneByOne_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventListenerTouchOneByOne)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventListenerTouchOneByOne)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -9340,7 +9340,7 @@ bool js_cocos2dx_EventListenerTouchAllAtOnce_constructor(JSContext *cx, uint32_t
 extern JSObject *jsb_cocos2d_EventListener_prototype;
 
 void js_cocos2d_EventListenerTouchAllAtOnce_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventListenerTouchAllAtOnce)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventListenerTouchAllAtOnce)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -9456,7 +9456,7 @@ bool js_cocos2dx_EventListenerKeyboard_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_cocos2d_EventListener_prototype;
 
 void js_cocos2d_EventListenerKeyboard_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventListenerKeyboard)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventListenerKeyboard)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -9707,7 +9707,7 @@ bool js_cocos2dx_EventMouse_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Event_prototype;
 
 void js_cocos2d_EventMouse_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventMouse)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventMouse)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -9830,7 +9830,7 @@ bool js_cocos2dx_EventListenerMouse_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_EventListener_prototype;
 
 void js_cocos2d_EventListenerMouse_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventListenerMouse)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventListenerMouse)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -9932,7 +9932,7 @@ bool js_cocos2dx_EventAcceleration_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_Event_prototype;
 
 void js_cocos2d_EventAcceleration_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventAcceleration)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventAcceleration)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -10122,7 +10122,7 @@ bool js_cocos2dx_EventListenerAcceleration_constructor(JSContext *cx, uint32_t a
 extern JSObject *jsb_cocos2d_EventListener_prototype;
 
 void js_cocos2d_EventListenerAcceleration_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventListenerAcceleration)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventListenerAcceleration)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -10244,7 +10244,7 @@ bool js_cocos2dx_EventCustom_constructor(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_cocos2d_Event_prototype;
 
 void js_cocos2d_EventCustom_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventCustom)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventCustom)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -10393,7 +10393,7 @@ bool js_cocos2dx_EventListenerCustom_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_cocos2d_EventListener_prototype;
 
 void js_cocos2d_EventListenerCustom_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventListenerCustom)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventListenerCustom)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -10513,7 +10513,7 @@ bool js_cocos2dx_EventFocus_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Event_prototype;
 
 void js_cocos2d_EventFocus_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventFocus)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventFocus)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -10651,7 +10651,7 @@ bool js_cocos2dx_EventListenerFocus_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_EventListener_prototype;
 
 void js_cocos2d_EventListenerFocus_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EventListenerFocus)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EventListenerFocus)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -11017,7 +11017,7 @@ bool js_cocos2dx_Action_reverse(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_Action_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Action)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Action)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -11144,7 +11144,7 @@ bool js_cocos2dx_FiniteTimeAction_getDuration(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_cocos2d_Action_prototype;
 
 void js_cocos2d_FiniteTimeAction_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FiniteTimeAction)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FiniteTimeAction)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -11400,7 +11400,7 @@ bool js_cocos2dx_Speed_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Action_prototype;
 
 void js_cocos2d_Speed_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Speed)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Speed)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -11655,7 +11655,7 @@ bool js_cocos2dx_Follow_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Action_prototype;
 
 void js_cocos2d_Follow_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Follow)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Follow)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -12364,7 +12364,7 @@ bool js_cocos2dx_SpriteFrame_constructor(JSContext *cx, uint32_t argc, jsval *vp
 
 
 void js_cocos2d_SpriteFrame_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (SpriteFrame)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (SpriteFrame)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -12737,7 +12737,7 @@ bool js_cocos2dx_AnimationFrame_constructor(JSContext *cx, uint32_t argc, jsval 
 
 
 void js_cocos2d_AnimationFrame_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (AnimationFrame)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (AnimationFrame)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -13373,7 +13373,7 @@ bool js_cocos2dx_Animation_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_Animation_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Animation)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Animation)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -13547,7 +13547,7 @@ bool js_cocos2dx_ActionInterval_getElapsed(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_FiniteTimeAction_prototype;
 
 void js_cocos2d_ActionInterval_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ActionInterval)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ActionInterval)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -13687,7 +13687,7 @@ bool js_cocos2dx_Sequence_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_Sequence_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Sequence)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Sequence)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -13905,7 +13905,7 @@ bool js_cocos2dx_Repeat_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_Repeat_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Repeat)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Repeat)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -14124,7 +14124,7 @@ bool js_cocos2dx_RepeatForever_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_RepeatForever_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (RepeatForever)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (RepeatForever)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -14266,7 +14266,7 @@ bool js_cocos2dx_Spawn_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_Spawn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Spawn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Spawn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -14476,7 +14476,7 @@ bool js_cocos2dx_RotateTo_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_RotateTo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (RotateTo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (RotateTo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -14731,7 +14731,7 @@ bool js_cocos2dx_RotateBy_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_RotateBy_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (RotateBy)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (RotateBy)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -14887,7 +14887,7 @@ bool js_cocos2dx_MoveBy_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_MoveBy_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (MoveBy)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (MoveBy)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -15043,7 +15043,7 @@ bool js_cocos2dx_MoveTo_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_MoveBy_prototype;
 
 void js_cocos2d_MoveTo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (MoveTo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (MoveTo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -15203,7 +15203,7 @@ bool js_cocos2dx_SkewTo_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_SkewTo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (SkewTo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (SkewTo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -15363,7 +15363,7 @@ bool js_cocos2dx_SkewBy_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_SkewTo_prototype;
 
 void js_cocos2d_SkewBy_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (SkewBy)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (SkewBy)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -15527,7 +15527,7 @@ bool js_cocos2dx_JumpBy_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_JumpBy_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (JumpBy)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (JumpBy)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -15663,7 +15663,7 @@ bool js_cocos2dx_JumpTo_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_JumpBy_prototype;
 
 void js_cocos2d_JumpTo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (JumpTo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (JumpTo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -15764,7 +15764,7 @@ bool js_cocos2dx_BezierBy_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_BezierBy_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (BezierBy)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (BezierBy)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -15862,7 +15862,7 @@ bool js_cocos2dx_BezierTo_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_BezierBy_prototype;
 
 void js_cocos2d_BezierTo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (BezierTo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (BezierTo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -16125,7 +16125,7 @@ bool js_cocos2dx_ScaleTo_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_ScaleTo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ScaleTo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ScaleTo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -16321,7 +16321,7 @@ bool js_cocos2dx_ScaleBy_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ScaleTo_prototype;
 
 void js_cocos2d_ScaleBy_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ScaleBy)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ScaleBy)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -16476,7 +16476,7 @@ bool js_cocos2dx_Blink_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_Blink_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Blink)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Blink)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -16632,7 +16632,7 @@ bool js_cocos2dx_FadeTo_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_FadeTo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FadeTo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FadeTo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -16789,7 +16789,7 @@ bool js_cocos2dx_FadeIn_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_FadeTo_prototype;
 
 void js_cocos2d_FadeIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FadeIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FadeIn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -16946,7 +16946,7 @@ bool js_cocos2dx_FadeOut_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_FadeTo_prototype;
 
 void js_cocos2d_FadeOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FadeOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FadeOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -17110,7 +17110,7 @@ bool js_cocos2dx_TintTo_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_TintTo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TintTo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TintTo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -17274,7 +17274,7 @@ bool js_cocos2dx_TintBy_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_TintBy_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TintBy)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TintBy)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -17404,7 +17404,7 @@ bool js_cocos2dx_DelayTime_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_DelayTime_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (DelayTime)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (DelayTime)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -17644,7 +17644,7 @@ bool js_cocos2dx_Animate_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_Animate_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Animate)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Animate)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -17905,7 +17905,7 @@ bool js_cocos2dx_TargetedAction_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_TargetedAction_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TargetedAction)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TargetedAction)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -18157,7 +18157,7 @@ bool js_cocos2dx_ActionCamera_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_ActionCamera_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ActionCamera)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ActionCamera)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -18374,7 +18374,7 @@ bool js_cocos2dx_OrbitCamera_constructor(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_cocos2d_ActionCamera_prototype;
 
 void js_cocos2d_OrbitCamera_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (OrbitCamera)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (OrbitCamera)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -18790,7 +18790,7 @@ bool js_cocos2dx_ActionManager_constructor(JSContext *cx, uint32_t argc, jsval *
 
 
 void js_cocos2d_ActionManager_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ActionManager)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ActionManager)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -18947,7 +18947,7 @@ bool js_cocos2dx_ActionEase_getInnerAction(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_ActionEase_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ActionEase)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ActionEase)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -19094,7 +19094,7 @@ bool js_cocos2dx_EaseRateAction_getRate(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseRateAction_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseRateAction)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseRateAction)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -19232,7 +19232,7 @@ bool js_cocos2dx_EaseIn_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_EaseRateAction_prototype;
 
 void js_cocos2d_EaseIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseIn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -19370,7 +19370,7 @@ bool js_cocos2dx_EaseOut_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_EaseRateAction_prototype;
 
 void js_cocos2d_EaseOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -19508,7 +19508,7 @@ bool js_cocos2dx_EaseInOut_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_EaseRateAction_prototype;
 
 void js_cocos2d_EaseInOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseInOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseInOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -19644,7 +19644,7 @@ bool js_cocos2dx_EaseExponentialIn_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseExponentialIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseExponentialIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseExponentialIn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -19780,7 +19780,7 @@ bool js_cocos2dx_EaseExponentialOut_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseExponentialOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseExponentialOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseExponentialOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -19916,7 +19916,7 @@ bool js_cocos2dx_EaseExponentialInOut_constructor(JSContext *cx, uint32_t argc, 
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseExponentialInOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseExponentialInOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseExponentialInOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -20052,7 +20052,7 @@ bool js_cocos2dx_EaseSineIn_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseSineIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseSineIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseSineIn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -20188,7 +20188,7 @@ bool js_cocos2dx_EaseSineOut_constructor(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseSineOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseSineOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseSineOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -20324,7 +20324,7 @@ bool js_cocos2dx_EaseSineInOut_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseSineInOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseSineInOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseSineInOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -20489,7 +20489,7 @@ bool js_cocos2dx_EaseElastic_getPeriod(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseElastic_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseElastic)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseElastic)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -20660,7 +20660,7 @@ bool js_cocos2dx_EaseElasticIn_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_EaseElastic_prototype;
 
 void js_cocos2d_EaseElasticIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseElasticIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseElasticIn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -20831,7 +20831,7 @@ bool js_cocos2dx_EaseElasticOut_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_EaseElastic_prototype;
 
 void js_cocos2d_EaseElasticOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseElasticOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseElasticOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -21002,7 +21002,7 @@ bool js_cocos2dx_EaseElasticInOut_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_cocos2d_EaseElastic_prototype;
 
 void js_cocos2d_EaseElasticInOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseElasticInOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseElasticInOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -21082,7 +21082,7 @@ JSObject *jsb_cocos2d_EaseBounce_prototype;
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseBounce_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseBounce)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseBounce)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -21215,7 +21215,7 @@ bool js_cocos2dx_EaseBounceIn_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_EaseBounce_prototype;
 
 void js_cocos2d_EaseBounceIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseBounceIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseBounceIn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -21351,7 +21351,7 @@ bool js_cocos2dx_EaseBounceOut_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_EaseBounce_prototype;
 
 void js_cocos2d_EaseBounceOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseBounceOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseBounceOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -21487,7 +21487,7 @@ bool js_cocos2dx_EaseBounceInOut_constructor(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_cocos2d_EaseBounce_prototype;
 
 void js_cocos2d_EaseBounceInOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseBounceInOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseBounceInOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -21623,7 +21623,7 @@ bool js_cocos2dx_EaseBackIn_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseBackIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseBackIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseBackIn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -21759,7 +21759,7 @@ bool js_cocos2dx_EaseBackOut_constructor(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseBackOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseBackOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseBackOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -21895,7 +21895,7 @@ bool js_cocos2dx_EaseBackInOut_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseBackInOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseBackInOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseBackInOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -22057,7 +22057,7 @@ bool js_cocos2dx_EaseBezierAction_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseBezierAction_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseBezierAction)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseBezierAction)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -22209,7 +22209,7 @@ bool js_cocos2dx_EaseQuadraticActionIn_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseQuadraticActionIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseQuadraticActionIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseQuadraticActionIn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -22360,7 +22360,7 @@ bool js_cocos2dx_EaseQuadraticActionOut_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseQuadraticActionOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseQuadraticActionOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseQuadraticActionOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -22511,7 +22511,7 @@ bool js_cocos2dx_EaseQuadraticActionInOut_constructor(JSContext *cx, uint32_t ar
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseQuadraticActionInOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseQuadraticActionInOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseQuadraticActionInOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -22662,7 +22662,7 @@ bool js_cocos2dx_EaseQuarticActionIn_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseQuarticActionIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseQuarticActionIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseQuarticActionIn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -22813,7 +22813,7 @@ bool js_cocos2dx_EaseQuarticActionOut_constructor(JSContext *cx, uint32_t argc, 
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseQuarticActionOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseQuarticActionOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseQuarticActionOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -22964,7 +22964,7 @@ bool js_cocos2dx_EaseQuarticActionInOut_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseQuarticActionInOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseQuarticActionInOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseQuarticActionInOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -23115,7 +23115,7 @@ bool js_cocos2dx_EaseQuinticActionIn_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseQuinticActionIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseQuinticActionIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseQuinticActionIn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -23266,7 +23266,7 @@ bool js_cocos2dx_EaseQuinticActionOut_constructor(JSContext *cx, uint32_t argc, 
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseQuinticActionOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseQuinticActionOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseQuinticActionOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -23417,7 +23417,7 @@ bool js_cocos2dx_EaseQuinticActionInOut_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseQuinticActionInOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseQuinticActionInOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseQuinticActionInOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -23568,7 +23568,7 @@ bool js_cocos2dx_EaseCircleActionIn_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseCircleActionIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseCircleActionIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseCircleActionIn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -23719,7 +23719,7 @@ bool js_cocos2dx_EaseCircleActionOut_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseCircleActionOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseCircleActionOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseCircleActionOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -23870,7 +23870,7 @@ bool js_cocos2dx_EaseCircleActionInOut_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseCircleActionInOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseCircleActionInOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseCircleActionInOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -24021,7 +24021,7 @@ bool js_cocos2dx_EaseCubicActionIn_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseCubicActionIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseCubicActionIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseCubicActionIn)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -24172,7 +24172,7 @@ bool js_cocos2dx_EaseCubicActionOut_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseCubicActionOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseCubicActionOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseCubicActionOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -24323,7 +24323,7 @@ bool js_cocos2dx_EaseCubicActionInOut_constructor(JSContext *cx, uint32_t argc, 
 extern JSObject *jsb_cocos2d_ActionEase_prototype;
 
 void js_cocos2d_EaseCubicActionInOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (EaseCubicActionInOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (EaseCubicActionInOut)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -24418,7 +24418,7 @@ JSObject *jsb_cocos2d_ActionInstant_prototype;
 extern JSObject *jsb_cocos2d_FiniteTimeAction_prototype;
 
 void js_cocos2d_ActionInstant_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ActionInstant)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ActionInstant)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -24539,7 +24539,7 @@ bool js_cocos2dx_Show_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInstant_prototype;
 
 void js_cocos2d_Show_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Show)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Show)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -24663,7 +24663,7 @@ bool js_cocos2dx_Hide_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInstant_prototype;
 
 void js_cocos2d_Hide_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Hide)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Hide)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -24787,7 +24787,7 @@ bool js_cocos2dx_ToggleVisibility_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_cocos2d_ActionInstant_prototype;
 
 void js_cocos2d_ToggleVisibility_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ToggleVisibility)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ToggleVisibility)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -24955,7 +24955,7 @@ bool js_cocos2dx_RemoveSelf_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInstant_prototype;
 
 void js_cocos2d_RemoveSelf_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (RemoveSelf)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (RemoveSelf)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -25107,7 +25107,7 @@ bool js_cocos2dx_FlipX_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInstant_prototype;
 
 void js_cocos2d_FlipX_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FlipX)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FlipX)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -25259,7 +25259,7 @@ bool js_cocos2dx_FlipY_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInstant_prototype;
 
 void js_cocos2d_FlipY_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FlipY)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FlipY)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -25411,7 +25411,7 @@ bool js_cocos2dx_Place_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInstant_prototype;
 
 void js_cocos2d_Place_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Place)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Place)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -25528,7 +25528,7 @@ bool js_cocos2dx_CallFunc_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInstant_prototype;
 
 void js_cocos2d_CallFunc_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (CallFunc)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (CallFunc)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -25627,7 +25627,7 @@ bool js_cocos2dx_CallFuncN_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_CallFunc_prototype;
 
 void js_cocos2d_CallFuncN_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (CallFuncN)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (CallFuncN)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -25752,7 +25752,7 @@ bool js_cocos2dx_GridAction_initWithDuration(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_GridAction_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (GridAction)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (GridAction)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -25855,7 +25855,7 @@ bool js_cocos2dx_Grid3DAction_getGrid(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_GridAction_prototype;
 
 void js_cocos2d_Grid3DAction_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Grid3DAction)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Grid3DAction)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -25957,7 +25957,7 @@ bool js_cocos2dx_TiledGrid3DAction_getGrid(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_GridAction_prototype;
 
 void js_cocos2d_TiledGrid3DAction_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TiledGrid3DAction)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TiledGrid3DAction)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -26079,7 +26079,7 @@ bool js_cocos2dx_StopGrid_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInstant_prototype;
 
 void js_cocos2d_StopGrid_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (StopGrid)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (StopGrid)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -26230,7 +26230,7 @@ bool js_cocos2dx_ReuseGrid_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInstant_prototype;
 
 void js_cocos2d_ReuseGrid_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ReuseGrid)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ReuseGrid)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -26468,7 +26468,7 @@ bool js_cocos2dx_Waves3D_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Grid3DAction_prototype;
 
 void js_cocos2d_Waves3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Waves3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Waves3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -26648,7 +26648,7 @@ bool js_cocos2dx_FlipX3D_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Grid3DAction_prototype;
 
 void js_cocos2d_FlipX3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FlipX3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FlipX3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -26779,7 +26779,7 @@ bool js_cocos2dx_FlipY3D_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_FlipX3D_prototype;
 
 void js_cocos2d_FlipY3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FlipY3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FlipY3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -27036,7 +27036,7 @@ bool js_cocos2dx_Lens3D_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Grid3DAction_prototype;
 
 void js_cocos2d_Lens3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Lens3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Lens3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -27324,7 +27324,7 @@ bool js_cocos2dx_Ripple3D_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Grid3DAction_prototype;
 
 void js_cocos2d_Ripple3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Ripple3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Ripple3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -27494,7 +27494,7 @@ bool js_cocos2dx_Shaky3D_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Grid3DAction_prototype;
 
 void js_cocos2d_Shaky3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Shaky3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Shaky3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -27732,7 +27732,7 @@ bool js_cocos2dx_Liquid_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Grid3DAction_prototype;
 
 void js_cocos2d_Liquid_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Liquid)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Liquid)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -27982,7 +27982,7 @@ bool js_cocos2dx_Waves_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Grid3DAction_prototype;
 
 void js_cocos2d_Waves_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Waves)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Waves)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -28265,7 +28265,7 @@ bool js_cocos2dx_Twirl_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Grid3DAction_prototype;
 
 void js_cocos2d_Twirl_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Twirl)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Twirl)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -28382,7 +28382,7 @@ bool js_cocos2dx_PageTurn3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Grid3DAction_prototype;
 
 void js_cocos2d_PageTurn3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (PageTurn3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (PageTurn3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -28537,7 +28537,7 @@ bool js_cocos2dx_ProgressTo_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_ProgressTo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ProgressTo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ProgressTo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -28697,7 +28697,7 @@ bool js_cocos2dx_ProgressFromTo_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_ProgressFromTo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ProgressFromTo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ProgressFromTo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -28861,7 +28861,7 @@ bool js_cocos2dx_ShakyTiles3D_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_TiledGrid3DAction_prototype;
 
 void js_cocos2d_ShakyTiles3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ShakyTiles3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ShakyTiles3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -29025,7 +29025,7 @@ bool js_cocos2dx_ShatteredTiles3D_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_cocos2d_TiledGrid3DAction_prototype;
 
 void js_cocos2d_ShatteredTiles3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ShatteredTiles3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ShatteredTiles3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -29251,7 +29251,7 @@ bool js_cocos2dx_ShuffleTiles_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_TiledGrid3DAction_prototype;
 
 void js_cocos2d_ShuffleTiles_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ShuffleTiles)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ShuffleTiles)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -29472,7 +29472,7 @@ bool js_cocos2dx_FadeOutTRTiles_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_TiledGrid3DAction_prototype;
 
 void js_cocos2d_FadeOutTRTiles_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FadeOutTRTiles)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FadeOutTRTiles)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -29607,7 +29607,7 @@ bool js_cocos2dx_FadeOutBLTiles_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_FadeOutTRTiles_prototype;
 
 void js_cocos2d_FadeOutBLTiles_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FadeOutBLTiles)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FadeOutBLTiles)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -29760,7 +29760,7 @@ bool js_cocos2dx_FadeOutUpTiles_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_FadeOutTRTiles_prototype;
 
 void js_cocos2d_FadeOutUpTiles_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FadeOutUpTiles)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FadeOutUpTiles)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -29892,7 +29892,7 @@ bool js_cocos2dx_FadeOutDownTiles_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_cocos2d_FadeOutUpTiles_prototype;
 
 void js_cocos2d_FadeOutDownTiles_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (FadeOutDownTiles)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (FadeOutDownTiles)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -30143,7 +30143,7 @@ bool js_cocos2dx_TurnOffTiles_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_TiledGrid3DAction_prototype;
 
 void js_cocos2d_TurnOffTiles_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TurnOffTiles)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TurnOffTiles)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -30384,7 +30384,7 @@ bool js_cocos2dx_WavesTiles3D_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_TiledGrid3DAction_prototype;
 
 void js_cocos2d_WavesTiles3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (WavesTiles3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (WavesTiles3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -30626,7 +30626,7 @@ bool js_cocos2dx_JumpTiles3D_constructor(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_cocos2d_TiledGrid3DAction_prototype;
 
 void js_cocos2d_JumpTiles3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (JumpTiles3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (JumpTiles3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -30786,7 +30786,7 @@ bool js_cocos2dx_SplitRows_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_TiledGrid3DAction_prototype;
 
 void js_cocos2d_SplitRows_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (SplitRows)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (SplitRows)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -30942,7 +30942,7 @@ bool js_cocos2dx_SplitCols_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_TiledGrid3DAction_prototype;
 
 void js_cocos2d_SplitCols_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (SplitCols)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (SplitCols)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -31085,7 +31085,7 @@ bool js_cocos2dx_ActionTween_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_ActionTween_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ActionTween)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ActionTween)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -31279,7 +31279,7 @@ bool js_cocos2dx_CardinalSplineTo_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_cocos2d_ActionInterval_prototype;
 
 void js_cocos2d_CardinalSplineTo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (CardinalSplineTo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (CardinalSplineTo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -31380,7 +31380,7 @@ bool js_cocos2dx_CardinalSplineBy_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_cocos2d_CardinalSplineTo_prototype;
 
 void js_cocos2d_CardinalSplineBy_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (CardinalSplineBy)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (CardinalSplineBy)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -31488,7 +31488,7 @@ bool js_cocos2dx_CatmullRomTo_initWithDuration(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_CardinalSplineTo_prototype;
 
 void js_cocos2d_CatmullRomTo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (CatmullRomTo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (CatmullRomTo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -31597,7 +31597,7 @@ bool js_cocos2dx_CatmullRomBy_initWithDuration(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_CardinalSplineBy_prototype;
 
 void js_cocos2d_CatmullRomBy_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (CatmullRomBy)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (CatmullRomBy)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -31944,7 +31944,7 @@ bool js_cocos2dx_DrawNode_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_DrawNode_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (DrawNode)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (DrawNode)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -32850,7 +32850,7 @@ bool js_cocos2dx_LabelTTF_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_LabelTTF_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (LabelTTF)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (LabelTTF)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -33589,7 +33589,7 @@ bool js_cocos2dx_GLProgram_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_GLProgram_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (GLProgram)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (GLProgram)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -34341,7 +34341,7 @@ bool js_cocos2dx_SpriteBatchNode_constructor(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_SpriteBatchNode_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (SpriteBatchNode)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (SpriteBatchNode)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -35700,7 +35700,7 @@ bool js_cocos2dx_Label_createWithSystemFont(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_SpriteBatchNode_prototype;
 
 void js_cocos2d_Label_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Label)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Label)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -36310,7 +36310,7 @@ bool js_cocos2dx_LabelBMFont_constructor(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_LabelBMFont_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (LabelBMFont)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (LabelBMFont)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -36447,7 +36447,7 @@ bool js_cocos2dx_Layer_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_Layer_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Layer)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Layer)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -36586,7 +36586,7 @@ bool js_cocos2dx___LayerRGBA_constructor(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_cocos2d_Layer_prototype;
 
 void js_cocos2d___LayerRGBA_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (__LayerRGBA)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (__LayerRGBA)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -36921,7 +36921,7 @@ bool js_cocos2dx_LayerColor_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Layer_prototype;
 
 void js_cocos2d_LayerColor_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (LayerColor)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (LayerColor)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -37413,7 +37413,7 @@ bool js_cocos2dx_LayerGradient_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_LayerColor_prototype;
 
 void js_cocos2d_LayerGradient_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (LayerGradient)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (LayerGradient)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -37649,7 +37649,7 @@ bool js_cocos2dx_LayerMultiplex_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_Layer_prototype;
 
 void js_cocos2d_LayerMultiplex_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (LayerMultiplex)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (LayerMultiplex)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -37924,7 +37924,7 @@ bool js_cocos2dx_Scene_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_Scene_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Scene)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Scene)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -38063,7 +38063,7 @@ bool js_cocos2dx_TransitionEaseScene_easeActionWithAction(JSContext *cx, uint32_
 
 
 void js_cocos2d_TransitionEaseScene_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionEaseScene)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionEaseScene)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -38261,7 +38261,7 @@ bool js_cocos2dx_TransitionScene_constructor(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_cocos2d_Scene_prototype;
 
 void js_cocos2d_TransitionScene_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionScene)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionScene)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -38458,7 +38458,7 @@ bool js_cocos2dx_TransitionSceneOriented_constructor(JSContext *cx, uint32_t arg
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionSceneOriented_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionSceneOriented)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionSceneOriented)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -38600,7 +38600,7 @@ bool js_cocos2dx_TransitionRotoZoom_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionRotoZoom_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionRotoZoom)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionRotoZoom)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -38741,7 +38741,7 @@ bool js_cocos2dx_TransitionJumpZoom_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionJumpZoom_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionJumpZoom)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionJumpZoom)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -38942,7 +38942,7 @@ bool js_cocos2dx_TransitionMoveInL_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionMoveInL_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionMoveInL)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionMoveInL)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -39085,7 +39085,7 @@ bool js_cocos2dx_TransitionMoveInR_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_TransitionMoveInL_prototype;
 
 void js_cocos2d_TransitionMoveInR_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionMoveInR)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionMoveInR)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -39226,7 +39226,7 @@ bool js_cocos2dx_TransitionMoveInT_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_TransitionMoveInL_prototype;
 
 void js_cocos2d_TransitionMoveInT_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionMoveInT)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionMoveInT)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -39367,7 +39367,7 @@ bool js_cocos2dx_TransitionMoveInB_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_TransitionMoveInL_prototype;
 
 void js_cocos2d_TransitionMoveInB_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionMoveInB)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionMoveInB)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -39568,7 +39568,7 @@ bool js_cocos2dx_TransitionSlideInL_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionSlideInL_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionSlideInL)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionSlideInL)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -39735,7 +39735,7 @@ bool js_cocos2dx_TransitionSlideInR_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_TransitionSlideInL_prototype;
 
 void js_cocos2d_TransitionSlideInR_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionSlideInR)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionSlideInR)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -39901,7 +39901,7 @@ bool js_cocos2dx_TransitionSlideInB_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_TransitionSlideInL_prototype;
 
 void js_cocos2d_TransitionSlideInB_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionSlideInB)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionSlideInB)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -40067,7 +40067,7 @@ bool js_cocos2dx_TransitionSlideInT_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_TransitionSlideInL_prototype;
 
 void js_cocos2d_TransitionSlideInT_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionSlideInT)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionSlideInT)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -40245,7 +40245,7 @@ bool js_cocos2dx_TransitionShrinkGrow_constructor(JSContext *cx, uint32_t argc, 
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionShrinkGrow_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionShrinkGrow)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionShrinkGrow)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -40426,7 +40426,7 @@ bool js_cocos2dx_TransitionFlipX_constructor(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_cocos2d_TransitionSceneOriented_prototype;
 
 void js_cocos2d_TransitionFlipX_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionFlipX)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionFlipX)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -40606,7 +40606,7 @@ bool js_cocos2dx_TransitionFlipY_constructor(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_cocos2d_TransitionSceneOriented_prototype;
 
 void js_cocos2d_TransitionFlipY_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionFlipY)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionFlipY)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -40786,7 +40786,7 @@ bool js_cocos2dx_TransitionFlipAngular_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_cocos2d_TransitionSceneOriented_prototype;
 
 void js_cocos2d_TransitionFlipAngular_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionFlipAngular)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionFlipAngular)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -40966,7 +40966,7 @@ bool js_cocos2dx_TransitionZoomFlipX_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_cocos2d_TransitionSceneOriented_prototype;
 
 void js_cocos2d_TransitionZoomFlipX_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionZoomFlipX)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionZoomFlipX)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -41146,7 +41146,7 @@ bool js_cocos2dx_TransitionZoomFlipY_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_cocos2d_TransitionSceneOriented_prototype;
 
 void js_cocos2d_TransitionZoomFlipY_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionZoomFlipY)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionZoomFlipY)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -41326,7 +41326,7 @@ bool js_cocos2dx_TransitionZoomFlipAngular_constructor(JSContext *cx, uint32_t a
 extern JSObject *jsb_cocos2d_TransitionSceneOriented_prototype;
 
 void js_cocos2d_TransitionZoomFlipAngular_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionZoomFlipAngular)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionZoomFlipAngular)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -41569,7 +41569,7 @@ bool js_cocos2dx_TransitionFade_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionFade_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionFade)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionFade)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -41711,7 +41711,7 @@ bool js_cocos2dx_TransitionCrossFade_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionCrossFade_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionCrossFade)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionCrossFade)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -41888,7 +41888,7 @@ bool js_cocos2dx_TransitionTurnOffTiles_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionTurnOffTiles_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionTurnOffTiles)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionTurnOffTiles)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -42090,7 +42090,7 @@ bool js_cocos2dx_TransitionSplitCols_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionSplitCols_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionSplitCols)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionSplitCols)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -42233,7 +42233,7 @@ bool js_cocos2dx_TransitionSplitRows_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_cocos2d_TransitionSplitCols_prototype;
 
 void js_cocos2d_TransitionSplitRows_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionSplitRows)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionSplitRows)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -42439,7 +42439,7 @@ bool js_cocos2dx_TransitionFadeTR_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionFadeTR_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionFadeTR)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionFadeTR)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -42582,7 +42582,7 @@ bool js_cocos2dx_TransitionFadeBL_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_cocos2d_TransitionFadeTR_prototype;
 
 void js_cocos2d_TransitionFadeBL_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionFadeBL)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionFadeBL)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -42723,7 +42723,7 @@ bool js_cocos2dx_TransitionFadeUp_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_cocos2d_TransitionFadeTR_prototype;
 
 void js_cocos2d_TransitionFadeUp_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionFadeUp)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionFadeUp)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -42864,7 +42864,7 @@ bool js_cocos2dx_TransitionFadeDown_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_TransitionFadeTR_prototype;
 
 void js_cocos2d_TransitionFadeDown_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionFadeDown)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionFadeDown)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -43069,7 +43069,7 @@ bool js_cocos2dx_TransitionPageTurn_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionPageTurn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionPageTurn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionPageTurn)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -43212,7 +43212,7 @@ bool js_cocos2dx_TransitionProgress_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_TransitionScene_prototype;
 
 void js_cocos2d_TransitionProgress_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionProgress)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionProgress)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -43353,7 +43353,7 @@ bool js_cocos2dx_TransitionProgressRadialCCW_constructor(JSContext *cx, uint32_t
 extern JSObject *jsb_cocos2d_TransitionProgress_prototype;
 
 void js_cocos2d_TransitionProgressRadialCCW_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionProgressRadialCCW)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionProgressRadialCCW)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -43494,7 +43494,7 @@ bool js_cocos2dx_TransitionProgressRadialCW_constructor(JSContext *cx, uint32_t 
 extern JSObject *jsb_cocos2d_TransitionProgress_prototype;
 
 void js_cocos2d_TransitionProgressRadialCW_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionProgressRadialCW)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionProgressRadialCW)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -43635,7 +43635,7 @@ bool js_cocos2dx_TransitionProgressHorizontal_constructor(JSContext *cx, uint32_
 extern JSObject *jsb_cocos2d_TransitionProgress_prototype;
 
 void js_cocos2d_TransitionProgressHorizontal_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionProgressHorizontal)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionProgressHorizontal)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -43776,7 +43776,7 @@ bool js_cocos2dx_TransitionProgressVertical_constructor(JSContext *cx, uint32_t 
 extern JSObject *jsb_cocos2d_TransitionProgress_prototype;
 
 void js_cocos2d_TransitionProgressVertical_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionProgressVertical)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionProgressVertical)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -43917,7 +43917,7 @@ bool js_cocos2dx_TransitionProgressInOut_constructor(JSContext *cx, uint32_t arg
 extern JSObject *jsb_cocos2d_TransitionProgress_prototype;
 
 void js_cocos2d_TransitionProgressInOut_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionProgressInOut)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionProgressInOut)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -44058,7 +44058,7 @@ bool js_cocos2dx_TransitionProgressOutIn_constructor(JSContext *cx, uint32_t arg
 extern JSObject *jsb_cocos2d_TransitionProgress_prototype;
 
 void js_cocos2d_TransitionProgressOutIn_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TransitionProgressOutIn)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TransitionProgressOutIn)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -44317,7 +44317,7 @@ bool js_cocos2dx_MenuItem_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_MenuItem_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (MenuItem)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (MenuItem)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -44597,7 +44597,7 @@ bool js_cocos2dx_MenuItemLabel_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_MenuItem_prototype;
 
 void js_cocos2d_MenuItemLabel_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (MenuItemLabel)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (MenuItemLabel)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -44768,7 +44768,7 @@ bool js_cocos2dx_MenuItemAtlasFont_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_MenuItemLabel_prototype;
 
 void js_cocos2d_MenuItemAtlasFont_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (MenuItemAtlasFont)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (MenuItemAtlasFont)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -45058,7 +45058,7 @@ bool js_cocos2dx_MenuItemFont_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_MenuItemLabel_prototype;
 
 void js_cocos2d_MenuItemFont_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (MenuItemFont)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (MenuItemFont)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -45454,7 +45454,7 @@ bool js_cocos2dx_MenuItemSprite_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_MenuItem_prototype;
 
 void js_cocos2d_MenuItemSprite_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (MenuItemSprite)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (MenuItemSprite)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -45723,7 +45723,7 @@ bool js_cocos2dx_MenuItemImage_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_MenuItemSprite_prototype;
 
 void js_cocos2d_MenuItemImage_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (MenuItemImage)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (MenuItemImage)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -45978,7 +45978,7 @@ bool js_cocos2dx_MenuItemToggle_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_MenuItem_prototype;
 
 void js_cocos2d_MenuItemToggle_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (MenuItemToggle)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (MenuItemToggle)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -46243,7 +46243,7 @@ bool js_cocos2dx_Menu_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Layer_prototype;
 
 void js_cocos2d_Menu_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Menu)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Menu)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -46569,7 +46569,7 @@ bool js_cocos2dx_ClippingNode_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_ClippingNode_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ClippingNode)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ClippingNode)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -47029,7 +47029,7 @@ bool js_cocos2dx_MotionStreak_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_MotionStreak_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (MotionStreak)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (MotionStreak)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -48214,7 +48214,7 @@ bool js_cocos2dx_Sprite_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_Sprite_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Sprite)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Sprite)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -48679,7 +48679,7 @@ bool js_cocos2dx_ProgressTimer_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_ProgressTimer_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ProgressTimer)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ProgressTimer)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -49535,7 +49535,7 @@ bool js_cocos2dx_RenderTexture_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_RenderTexture_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (RenderTexture)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (RenderTexture)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -49773,7 +49773,7 @@ bool js_cocos2dx_NodeGrid_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_NodeGrid_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (NodeGrid)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (NodeGrid)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -50275,7 +50275,7 @@ bool js_cocos2dx_ParticleBatchNode_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_ParticleBatchNode_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleBatchNode)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleBatchNode)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -52470,7 +52470,7 @@ bool js_cocos2dx_ParticleSystem_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_ParticleSystem_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleSystem)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleSystem)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -52877,7 +52877,7 @@ bool js_cocos2dx_ParticleSystemQuad_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_cocos2d_ParticleSystem_prototype;
 
 void js_cocos2d_ParticleSystemQuad_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleSystemQuad)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleSystemQuad)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -53050,7 +53050,7 @@ bool js_cocos2dx_ParticleFire_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_ParticleSystemQuad_prototype;
 
 void js_cocos2d_ParticleFire_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleFire)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleFire)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -53243,7 +53243,7 @@ bool js_cocos2dx_ParticleFireworks_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_ParticleSystemQuad_prototype;
 
 void js_cocos2d_ParticleFireworks_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleFireworks)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleFireworks)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -53437,7 +53437,7 @@ bool js_cocos2dx_ParticleSun_constructor(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_cocos2d_ParticleSystemQuad_prototype;
 
 void js_cocos2d_ParticleSun_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleSun)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleSun)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -53631,7 +53631,7 @@ bool js_cocos2dx_ParticleGalaxy_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_ParticleSystemQuad_prototype;
 
 void js_cocos2d_ParticleGalaxy_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleGalaxy)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleGalaxy)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -53825,7 +53825,7 @@ bool js_cocos2dx_ParticleFlower_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_ParticleSystemQuad_prototype;
 
 void js_cocos2d_ParticleFlower_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleFlower)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleFlower)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -54019,7 +54019,7 @@ bool js_cocos2dx_ParticleMeteor_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_ParticleSystemQuad_prototype;
 
 void js_cocos2d_ParticleMeteor_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleMeteor)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleMeteor)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -54213,7 +54213,7 @@ bool js_cocos2dx_ParticleSpiral_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_cocos2d_ParticleSystemQuad_prototype;
 
 void js_cocos2d_ParticleSpiral_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleSpiral)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleSpiral)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -54407,7 +54407,7 @@ bool js_cocos2dx_ParticleExplosion_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_cocos2d_ParticleSystemQuad_prototype;
 
 void js_cocos2d_ParticleExplosion_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleExplosion)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleExplosion)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -54601,7 +54601,7 @@ bool js_cocos2dx_ParticleSmoke_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_ParticleSystemQuad_prototype;
 
 void js_cocos2d_ParticleSmoke_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleSmoke)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleSmoke)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -54795,7 +54795,7 @@ bool js_cocos2dx_ParticleSnow_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_ParticleSystemQuad_prototype;
 
 void js_cocos2d_ParticleSnow_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleSnow)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleSnow)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -54989,7 +54989,7 @@ bool js_cocos2dx_ParticleRain_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_ParticleSystemQuad_prototype;
 
 void js_cocos2d_ParticleRain_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParticleRain)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParticleRain)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -55476,7 +55476,7 @@ bool js_cocos2dx_GridBase_create(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_GridBase_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (GridBase)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (GridBase)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -55675,7 +55675,7 @@ bool js_cocos2dx_Grid3D_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_GridBase_prototype;
 
 void js_cocos2d_Grid3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Grid3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Grid3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -55857,7 +55857,7 @@ bool js_cocos2dx_TiledGrid3D_constructor(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_cocos2d_GridBase_prototype;
 
 void js_cocos2d_TiledGrid3D_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TiledGrid3D)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TiledGrid3D)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -56091,7 +56091,7 @@ bool js_cocos2dx_GLProgramCache_constructor(JSContext *cx, uint32_t argc, jsval 
 
 
 void js_cocos2d_GLProgramCache_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (GLProgramCache)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (GLProgramCache)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -56514,7 +56514,7 @@ bool js_cocos2dx_TextureCache_constructor(JSContext *cx, uint32_t argc, jsval *v
 
 
 void js_cocos2d_TextureCache_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TextureCache)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TextureCache)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -56648,7 +56648,7 @@ bool js_cocos2dx_Device_getDPI(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_Device_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Device)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Device)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -56749,7 +56749,7 @@ bool js_cocos2dx_SAXParser_init(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_SAXParser_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (SAXParser)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (SAXParser)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -56861,7 +56861,7 @@ bool js_cocos2dx_Application_getInstance(JSContext *cx, uint32_t argc, jsval *vp
 
 
 void js_cocos2d_Application_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Application)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Application)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -57253,7 +57253,7 @@ bool js_cocos2dx_GLViewProtocol_getVisibleSize(JSContext *cx, uint32_t argc, jsv
 
 
 void js_cocos2d_GLViewProtocol_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (GLViewProtocol)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (GLViewProtocol)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -57455,7 +57455,7 @@ bool js_cocos2dx_GLView_createWithFullScreen(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_cocos2d_GLViewProtocol_prototype;
 
 void js_cocos2d_GLView_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (GLView)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (GLView)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -57725,7 +57725,7 @@ bool js_cocos2dx_AnimationCache_constructor(JSContext *cx, uint32_t argc, jsval 
 
 
 void js_cocos2d_AnimationCache_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (AnimationCache)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (AnimationCache)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -58074,7 +58074,7 @@ bool js_cocos2dx_SpriteFrameCache_getInstance(JSContext *cx, uint32_t argc, jsva
 
 
 void js_cocos2d_SpriteFrameCache_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (SpriteFrameCache)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (SpriteFrameCache)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -58486,7 +58486,7 @@ bool js_cocos2dx_TextFieldTTF_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_Label_prototype;
 
 void js_cocos2d_TextFieldTTF_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TextFieldTTF)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TextFieldTTF)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -58742,7 +58742,7 @@ bool js_cocos2dx_ParallaxNode_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_ParallaxNode_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ParallaxNode)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ParallaxNode)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -59072,7 +59072,7 @@ bool js_cocos2dx_TMXObjectGroup_constructor(JSContext *cx, uint32_t argc, jsval 
 
 
 void js_cocos2d_TMXObjectGroup_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TMXObjectGroup)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TMXObjectGroup)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -59216,7 +59216,7 @@ bool js_cocos2dx_TMXLayerInfo_constructor(JSContext *cx, uint32_t argc, jsval *v
 
 
 void js_cocos2d_TMXLayerInfo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TMXLayerInfo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TMXLayerInfo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -59337,7 +59337,7 @@ bool js_cocos2dx_TMXTilesetInfo_constructor(JSContext *cx, uint32_t argc, jsval 
 
 
 void js_cocos2d_TMXTilesetInfo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TMXTilesetInfo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TMXTilesetInfo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -60169,7 +60169,7 @@ bool js_cocos2dx_TMXMapInfo_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_TMXMapInfo_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TMXMapInfo)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TMXMapInfo)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -60893,7 +60893,7 @@ bool js_cocos2dx_TMXLayer_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_cocos2d_SpriteBatchNode_prototype;
 
 void js_cocos2d_TMXLayer_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TMXLayer)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TMXLayer)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -61467,7 +61467,7 @@ bool js_cocos2dx_TMXTiledMap_constructor(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_TMXTiledMap_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TMXTiledMap)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TMXTiledMap)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -61758,7 +61758,7 @@ bool js_cocos2dx_TileMapAtlas_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_cocos2d_AtlasNode_prototype;
 
 void js_cocos2d_TileMapAtlas_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (TileMapAtlas)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (TileMapAtlas)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -62064,7 +62064,7 @@ bool js_cocos2dx_Component_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_Component_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (Component)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (Component)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -62298,7 +62298,7 @@ bool js_cocos2dx_ComponentContainer_get(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2d_ComponentContainer_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ComponentContainer)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ComponentContainer)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
@@ -62864,7 +62864,7 @@ bool js_cocos2dx_SimpleAudioEngine_getInstance(JSContext *cx, uint32_t argc, jsv
 
 
 void js_CocosDenshion_SimpleAudioEngine_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (SimpleAudioEngine)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (SimpleAudioEngine)", obj);
 //    js_proxy_t* nproxy;
 //    js_proxy_t* jsproxy;
 //    jsproxy = jsb_get_js_proxy(obj);
@@ -63282,7 +63282,7 @@ bool js_cocos2dx_ProtectedNode_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_cocos2d_Node_prototype;
 
 void js_cocos2d_ProtectedNode_finalize(JSFreeOp *fop, JSObject *obj) {
-    CCLOGINFO("jsbindings: finalizing JS object %p (ProtectedNode)", obj);
+    CCLOG("jsbindings: finalizing JS object %p (ProtectedNode)", obj);
     js_proxy_t* nproxy;
     js_proxy_t* jsproxy;
     jsproxy = jsb_get_js_proxy(obj);
