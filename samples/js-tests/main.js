@@ -26,7 +26,7 @@
  ****************************************************************************/
 
 cc.game.onStart = function(){
-    jsb.check_finalize(CrashTest.prototype);
+    //jsb.check_finalize(cc.LayerGradient.prototype);
 
     cc.LoaderScene.preload(g_resources, function () {
 

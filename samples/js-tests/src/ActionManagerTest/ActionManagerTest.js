@@ -410,7 +410,9 @@ var nextActionMgrTest = function (num) {
         ActionMgrTestIdx = window.sideIndexBar.changeTest(ActionMgrTestIdx, 0);
     }
 
-    return new arrayOfActionMgrTest[ActionMgrTestIdx]();
+    var layer = new arrayOfActionMgrTest[ActionMgrTestIdx]();
+    jsb.check_finalize(layer.constructor.prototype);
+    return layer;
 };
 var previousActionMgrTest = function () {
     ActionMgrTestIdx--;
