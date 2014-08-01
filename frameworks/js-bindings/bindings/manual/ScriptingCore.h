@@ -107,6 +107,8 @@ public:
 
     virtual int sendEvent(cocos2d::ScriptEvent* message) override;
     
+    virtual bool executeFunctionFromNative(cocos2d::Ref *owner, const std::string func) override;
+    
     virtual bool parseConfig(ConfigType type, const std::string& str) override;
 
     virtual bool handleAssert(const char *msg) { return false; }
