@@ -1,12 +1,11 @@
 define([
     "require", "core", "Sprite", "audio",
     "game/config/GameConfig",
-    "game/GameLayer",
     "game/Explosion",
     "game/SparkEffect",
-    "game/Bullet"
-], function(require, cc, Sprite, audioEngine, MW, GameLayer, Explosion, SparkEffect, Bullet) {
-
+    "game/Bullet",
+    "game/config/EnemyType"
+], function(require, cc, Sprite, audioEngine, MW, Explosion, SparkEffect, Bullet, EnemyType) {
     var Enemy = Sprite.extend({
         eID:0,
         enemyType:1,
@@ -45,8 +44,8 @@ define([
                     this._hurtColorLife--;
                 }
             }
-
-            if (x < 0 || x > g_sharedGameLayer.screenRect.width || y < 0 || y > g_sharedGameLayer.screenRect.height || this.HP <= 0) {
+            var GameLayer = require("game/GameLayer");
+            if (x < 0 || x > GameLayer.sharedGameLayer.screenRect.width || y < 0 || y > GameLayer.sharedGameLayer.screenRect.height || this.HP <= 0) {
                 this.active = false;
                 this.destroy();
             }
@@ -111,7 +110,7 @@ define([
 
     Enemy.create = function (arg) {
         var enemy = new Enemy(arg);
-        GameLayer = require("game/GameLayer");
+        var GameLayer = require("game/GameLayer");
         GameLayer.sharedGameLayer.addEnemy(enemy, enemy.zOrder, MW.UNIT_TAG.ENEMY);
         MW.CONTAINER.ENEMIES.push(enemy);
         return enemy;

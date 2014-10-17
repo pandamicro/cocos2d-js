@@ -1,4 +1,4 @@
-define(["require", "core", "Sprite", "game/GameLayer", "game/config/GameConfig"], function(require, cc, Sprite, GameLayer, MW) {
+define(["require", "core", "Sprite", "game/config/GameConfig"], function(require, cc, Sprite, MW) {
     var BackTileMapLvl1 = [
         "lvl1_map1.png",
         "lvl1_map2.png",
@@ -21,6 +21,7 @@ define(["require", "core", "Sprite", "game/GameLayer", "game/config/GameConfig"]
 
     BackTileMap.create = function (frameName) {
         var backTileMap = new BackTileMap(frameName);
+        var GameLayer = require("game/GameLayer");
         GameLayer.sharedGameLayer.addChild(backTileMap, -9);
         MW.CONTAINER.BACKTILEMAPS.push(backTileMap);
         return backTileMap;

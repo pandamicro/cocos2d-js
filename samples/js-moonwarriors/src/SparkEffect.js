@@ -1,4 +1,4 @@
-define(["require", "core", "Sprite", "actions", "game/config/GameConfig", "game/GameLayer"], function(require, cc, Sprite, actions, MW, GameLayer) {
+define(["require", "core", "Sprite", "actions", "game/config/GameConfig"], function(require, cc, Sprite, actions, MW) {
 
     var SparkEffect = cc.Class.extend({
         active:true,
@@ -64,7 +64,7 @@ define(["require", "core", "Sprite", "actions", "game/config/GameConfig", "game/
 
     SparkEffect.create = function () {
         var sparkEffect = new SparkEffect();
-        GameLayer = require("game/GameLayer");
+        var GameLayer = require("game/GameLayer");
         GameLayer.sharedGameLayer.addSpark(sparkEffect.spark1);
         GameLayer.sharedGameLayer.addSpark(sparkEffect.spark2);
         MW.CONTAINER.SPARKS.push(sparkEffect);

@@ -1,9 +1,8 @@
 define([
     "require",
     "core", "Sprite", "actions",
-    "game/config/GameConfig",
-    "game/GameLayer",
-], function(require, cc, Sprite, actions, MW, GameLayer) {
+    "game/config/GameConfig"
+], function(require, cc, Sprite, actions, MW) {
 
     var HitEffect = Sprite.extend({
         active:true,
@@ -45,7 +44,7 @@ define([
 
     HitEffect.create = function () {
         var hitEffect = new HitEffect();
-        GameLayer = require("GameLayer");
+        var GameLayer = require("game/GameLayer");
         GameLayer.sharedGameLayer.addBulletHits(hitEffect, 9999);
         MW.CONTAINER.HITS.push(hitEffect);
         return hitEffect;

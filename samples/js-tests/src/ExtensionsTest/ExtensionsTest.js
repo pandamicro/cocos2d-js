@@ -127,6 +127,15 @@ if (cc.sys.isNative && cc.sys.OS_WINDOWS != cc.sys.os) {
         }
     });
 }
+if (!cc.sys.isNative) {
+    extensionsTestItemNames.push({
+        itemTitle:"ActionTimelineTestScene",
+        testScene:function () {
+            var scene = new ActionTimelineTestScene();
+            scene.runThisTest();
+        }
+    });
+}
 
 var ExtensionsMainLayer = cc.Layer.extend({
     onEnter:function () {

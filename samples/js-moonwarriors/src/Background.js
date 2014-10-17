@@ -1,5 +1,4 @@
-define(["require", "core", "Sprite", "game/GameLayer", "game/config/GameConfig"], function(require, cc, Sprite, GameLayer, MW) {
-
+define(["require", "core", "Sprite", "game/config/GameConfig"], function(require, cc, Sprite, MW) {
     var BackSky = Sprite.extend({
         active:true,
         ctor:function () {
@@ -15,6 +14,7 @@ define(["require", "core", "Sprite", "game/GameLayer", "game/config/GameConfig"]
 
     BackSky.create = function () {
         var background = new BackSky();
+        var GameLayer = require("game/GameLayer");
         GameLayer.sharedGameLayer.addChild(background, -10);
         MW.CONTAINER.BACKSKYS.push(background);
         return background;

@@ -1,4 +1,4 @@
-define([], function() {
+define(["game/config/GameConfig"], function(MW) {
 
     var EnemyType = [
         {
