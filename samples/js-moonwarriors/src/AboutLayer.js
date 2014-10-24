@@ -38,7 +38,7 @@ define(["require", "core", "Scene", "layers", "Sprite", "Menu", "menuitems", "La
         },
         onBackCallback:function (pSender) {
             var scene = new Scene();
-            var SysMenu = require("game/SysMenu");
+            var SysMenu = requirejs("game/SysMenu");
             scene.addChild(new SysMenu());
             cc.director.runScene(new cc.TransitionFade(1.2, scene));
         }

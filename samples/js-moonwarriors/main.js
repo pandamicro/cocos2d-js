@@ -70,12 +70,41 @@
  }
  *
  */
+(function (){
 
-require.config(require_config);
 
-require(["root/CCBoot", "core"], function(boot, cc) {
+    var requirejsSystemInfo = {};
+    if (typeof sys !== "undefined")
+    {
+        requirejsSystemInfo = sys;
+    }
+    if (requirejsSystemInfo.isNative)
+    {
+        cc.game.prepare(function(){
+            requirejs.config(require_config);
 
-    require(["cocos2dPath/core/scenes/CCLoaderScene", "game/res_menu", "game/SysMenu"], function(LoaderScene, res, SysMenu) {
+            requirejs(["root/CCBoot", "core"], function(boot, cc) {
+
+                requirejs(["cocos2dPath/core/scenes/CCLoaderScene", "game/res_menu", "game/SysMenu"], function(LoaderScene, res, SysMenu) {
+                    gameStartFun(LoaderScene, res, SysMenu);
+                });
+            });
+        });
+    }
+    else
+    {
+        requirejs.config(require_config);
+
+        requirejs(["root/CCBoot", "core"], function(boot, cc) {
+
+            requirejs(["cocos2dPath/core/scenes/CCLoaderScene", "game/res_menu", "game/SysMenu"], function(LoaderScene, res, SysMenu) {
+                gameStartFun(LoaderScene, res, SysMenu);
+            });
+        });
+    }
+
+
+    var gameStartFun = function (LoaderScene, res, SysMenu) {
         cc.game.onStart = function () {
             cc.view.adjustViewPort(true);
             cc.view.setDesignResolutionSize(320, 480, cc.ResolutionPolicy.SHOW_ALL);
@@ -96,7 +125,8 @@ require(["root/CCBoot", "core"], function(boot, cc) {
                 cc.director.runScene(SysMenu.scene());
             }, this);
         };
-
         cc.game.run();
-    });
-});
+    };
+})();
+
+

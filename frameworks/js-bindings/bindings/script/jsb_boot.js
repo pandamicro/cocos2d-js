@@ -1572,11 +1572,12 @@ cc.game = {
         var self = this, config = self.config, CONFIG_KEY = self.CONFIG_KEY, loader = cc.loader;
         require("script/jsb.js");
         self._prepareCalled = true;
-        loader.loadJsWithImg("", config[CONFIG_KEY.jsList] || [], function(err){
-            if(err) throw err;
-            self._prepared = true;
-            if(cb) cb();
-        });
+//        loader.loadJsWithImg("", config[CONFIG_KEY.jsList] || [], function(err){
+//            if(err) throw err;
+//            self._prepared = true;
+//            if(cb) cb();
+//        });
+        if(cb) cb();
     }
 };
 cc.game._initConfig();

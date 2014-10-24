@@ -68,7 +68,7 @@ define([
         },
         onBackCallback:function (pSender) {
             var scene = new Scene();
-            SysMenu = require("game/SysMenu");
+            SysMenu = requirejs("game/SysMenu");
             scene.addChild(new SysMenu());
             cc.director.runScene(new cc.TransitionFade(1.2, scene));
         },

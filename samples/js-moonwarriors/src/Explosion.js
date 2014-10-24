@@ -62,7 +62,7 @@ define([
     };
     Explosion.create = function () {
         var explosion = new Explosion();
-        var GameLayer = require("game/GameLayer");
+        var GameLayer = requirejs("game/GameLayer");
         GameLayer.sharedGameLayer.addExplosions(explosion);
         MW.CONTAINER.EXPLOSIONS.push(explosion);
         return explosion;

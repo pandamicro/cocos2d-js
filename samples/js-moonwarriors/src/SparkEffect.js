@@ -64,7 +64,7 @@ define(["require", "core", "Sprite", "actions", "game/config/GameConfig"], funct
 
     SparkEffect.create = function () {
         var sparkEffect = new SparkEffect();
-        var GameLayer = require("game/GameLayer");
+        var GameLayer = requirejs("game/GameLayer");
         GameLayer.sharedGameLayer.addSpark(sparkEffect.spark1);
         GameLayer.sharedGameLayer.addSpark(sparkEffect.spark2);
         MW.CONTAINER.SPARKS.push(sparkEffect);

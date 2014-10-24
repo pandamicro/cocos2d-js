@@ -23,7 +23,7 @@ define(["require", "core", "Sprite", "game/config/GameConfig", "game/HitEffect"]
             var x = this.x, y = this.y;
             this.x = x - this.xVelocity * dt;
             this.y = y - this.yVelocity * dt;
-            var GameLayer = require("game/GameLayer");
+            var GameLayer = requirejs("game/GameLayer");
             if (x < 0 || x > GameLayer.sharedGameLayer.screenRect.width || y < 0 || y > GameLayer.sharedGameLayer.screenRect.height || this.HP <= 0) {
                 this.destroy();
             }
@@ -72,7 +72,7 @@ define(["require", "core", "Sprite", "game/config/GameConfig", "game/HitEffect"]
 
     Bullet.create = function (bulletSpeed, weaponType, attackMode, zOrder, mode) {
         var bullet = new Bullet(bulletSpeed, weaponType, attackMode);
-        var GameLayer = require("game/GameLayer");
+        var GameLayer = requirejs("game/GameLayer");
         GameLayer.sharedGameLayer.addBullet(bullet, zOrder, mode);
         if (mode == MW.UNIT_TAG.PLAYER_BULLET) {
             MW.CONTAINER.PLAYER_BULLETS.push(bullet);

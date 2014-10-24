@@ -44,7 +44,7 @@ define([
 
     HitEffect.create = function () {
         var hitEffect = new HitEffect();
-        var GameLayer = require("game/GameLayer");
+        var GameLayer = requirejs("game/GameLayer");
         GameLayer.sharedGameLayer.addBulletHits(hitEffect, 9999);
         MW.CONTAINER.HITS.push(hitEffect);
         return hitEffect;

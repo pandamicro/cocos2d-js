@@ -80,7 +80,7 @@ define([
             audioEngine.stopMusic();
             audioEngine.stopAllEffects();
             var scene = new Scene();
-            var GameLayer = require("game/GameLayer");
+            var GameLayer = requirejs("game/GameLayer");
             scene.addChild(new GameLayer());
             scene.addChild(new GameControlMenu());
             cc.director.runScene(new cc.TransitionFade(1.2,scene));

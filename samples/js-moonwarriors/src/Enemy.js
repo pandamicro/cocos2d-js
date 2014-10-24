@@ -44,7 +44,7 @@ define([
                     this._hurtColorLife--;
                 }
             }
-            var GameLayer = require("game/GameLayer");
+            var GameLayer = requirejs("game/GameLayer");
             if (x < 0 || x > GameLayer.sharedGameLayer.screenRect.width || y < 0 || y > GameLayer.sharedGameLayer.screenRect.height || this.HP <= 0) {
                 this.active = false;
                 this.destroy();
@@ -110,7 +110,7 @@ define([
 
     Enemy.create = function (arg) {
         var enemy = new Enemy(arg);
-        var GameLayer = require("game/GameLayer");
+        var GameLayer = requirejs("game/GameLayer");
         GameLayer.sharedGameLayer.addEnemy(enemy, enemy.zOrder, MW.UNIT_TAG.ENEMY);
         MW.CONTAINER.ENEMIES.push(enemy);
         return enemy;
