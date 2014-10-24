@@ -1,7 +1,7 @@
 
 define([
     "require",
-    "core", "Sprite", "actions", "audio",
+    "cocosModule/core", "cocosModule/Sprite", "cocosModule/actions", "cocosModule/audio",
     "cocos2dPath/core/sprites/CCSpriteFrameCache",
     "cocos2dPath/core/sprites/CCAnimation",
     "game/config/GameConfig",

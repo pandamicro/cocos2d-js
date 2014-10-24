@@ -1,4 +1,4 @@
-define(["require", "core", "Scene", "layers", "Sprite", "Menu", "menuitems", "LabelTTF", "game/SysMenu"], function(require, cc, Scene, ls, Sprite, Menu, mItems, Label) {
+define(["require", "cocosModule/core", "cocosModule/Scene", "cocosModule/layers", "cocosModule/Sprite", "cocosModule/Menu", "cocosModule/menuitems", "cocosModule/LabelTTF", "game/SysMenu"], function(require, cc, Scene, ls, Sprite, Menu, mItems, Label) {
 
     var AboutLayer = ls.Layer.extend({
         ctor:function(){

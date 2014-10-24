@@ -1,9 +1,9 @@
 define([
-    "require", "core", "Sprite",
+    "require", "cocosModule/core", "cocosModule/Sprite",
     "cocos2dPath/core/sprites/CCSpriteFrameCache",
     "cocos2dPath/core/sprites/CCAnimation",
     "cocos2dPath/core/sprites/CCAnimationCache",
-    "actions",
+    "cocosModule/actions",
     "game/config/GameConfig"
 ], function(require, cc, Sprite, spriteFrameCache, Animation, animationCache, actions, MW) {
     var Explosion = cc.Sprite.extend({

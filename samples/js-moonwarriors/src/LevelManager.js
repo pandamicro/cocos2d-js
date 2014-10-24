@@ -1,7 +1,7 @@
 
 define([
     "require",
-    "core", "Sprite", "actions",
+    "cocosModule/core", "cocosModule/Sprite", "cocosModule/actions",
     "game/config/GameConfig",
     "game/config/EnemyType",
     "game/Enemy",

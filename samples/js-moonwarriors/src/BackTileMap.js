@@ -1,4 +1,4 @@
-define(["require", "core", "Sprite", "game/config/GameConfig"], function(require, cc, Sprite, MW) {
+define(["require", "cocosModule/core", "cocosModule/Sprite", "game/config/GameConfig"], function(require, cc, Sprite, MW) {
     var BackTileMapLvl1 = [
         "lvl1_map1.png",
         "lvl1_map2.png",

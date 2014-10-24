@@ -1,6 +1,6 @@
 define([
     "require",
-    "core", "Sprite", "actions",
+    "cocosModule/core", "cocosModule/Sprite", "cocosModule/actions",
     "game/config/GameConfig"
 ], function(require, cc, Sprite, actions, MW) {
 

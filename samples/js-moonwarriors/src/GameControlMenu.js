@@ -1,11 +1,11 @@
 define([
     "require",
-    "core",
-    "Scene",
-    "layers",
-    "Menu",
-    "menuitems",
-    "audio",
+    "cocosModule/core",
+    "cocosModule/Scene",
+    "cocosModule/layers",
+    "cocosModule/Menu",
+    "cocosModule/menuitems",
+    "cocosModule/audio",
     "game/SysMenu"
 ], function(require, cc, Scene, ls, Menu, mItems, audioEngine, SysMenu) {
 

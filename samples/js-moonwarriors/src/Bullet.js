@@ -1,5 +1,5 @@
 
-define(["require", "core", "Sprite", "game/config/GameConfig", "game/HitEffect"], function(require, cc, Sprite, MW, HitEffect) {
+define(["require", "cocosModule/core", "cocosModule/Sprite", "game/config/GameConfig", "game/HitEffect"], function(require, cc, Sprite, MW, HitEffect) {
 
     //bullet
     var Bullet = Sprite.extend({

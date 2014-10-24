@@ -1,6 +1,6 @@
 define([
     "require",
-    "core", "Scene", "LoaderScene", "layers", "Sprite", "Menu", "menuitems", "actions", "audio",
+    "cocosModule/core", "cocosModule/Scene", "cocosModule/LoaderScene", "cocosModule/layers", "cocosModule/Sprite", "cocosModule/Menu", "cocosModule/menuitems", "cocosModule/actions", "cocosModule/audio",
     "cocos2dPath/core/sprites/CCSpriteFrameCache",
     "cocos2dPath/transitions/CCTransition",
     "game/config/GameConfig",

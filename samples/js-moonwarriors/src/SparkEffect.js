@@ -1,4 +1,4 @@
-define(["require", "core", "Sprite", "actions", "game/config/GameConfig"], function(require, cc, Sprite, actions, MW) {
+define(["require", "cocosModule/core", "cocosModule/Sprite", "cocosModule/actions", "game/config/GameConfig"], function(require, cc, Sprite, actions, MW) {
 
     var SparkEffect = cc.Class.extend({
         active:true,

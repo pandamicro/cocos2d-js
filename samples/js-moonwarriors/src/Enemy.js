@@ -1,5 +1,5 @@
 define([
-    "require", "core", "Sprite", "audio",
+    "require", "cocosModule/core", "cocosModule/Sprite", "cocosModule/audio",
     "game/config/GameConfig",
     "game/Explosion",
     "game/SparkEffect",

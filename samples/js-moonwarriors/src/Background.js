@@ -1,4 +1,4 @@
-define(["require", "core", "Sprite", "game/config/GameConfig"], function(require, cc, Sprite, MW) {
+define(["require", "cocosModule/core", "cocosModule/Sprite", "game/config/GameConfig"], function(require, cc, Sprite, MW) {
     var BackSky = Sprite.extend({
         active:true,
         ctor:function () {

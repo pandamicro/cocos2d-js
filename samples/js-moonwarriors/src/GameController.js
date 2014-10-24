@@ -16,7 +16,7 @@
  */
 
 define([
-    "core",
+    "cocosModule/core",
     "game/config/GameConfig"
 ], function(cc, MW) {
 
