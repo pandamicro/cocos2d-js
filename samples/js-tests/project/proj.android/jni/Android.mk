@@ -7,7 +7,10 @@ LOCAL_MODULE := js_tests_shared
 LOCAL_MODULE_FILENAME := libjs_tests
 
 LOCAL_SRC_FILES := main.cpp \
-                   ../../Classes/AppDelegate.cpp
+                   ../../Classes/sqlite3.c  \
+					../../Classes/SQLiteWrapper.cpp  \
+					../../Classes/jsb_cocos2dx_sqlite.cpp  \
+					../../Classes/AppDelegate.cpp 
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
