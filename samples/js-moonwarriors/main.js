@@ -71,32 +71,62 @@
  *
  */
 
-require.config(require_config);
+var gameStartFun = function (LoaderScene, res, startScene) {
+    cc.game.onStart = function () {
+        cc.view.adjustViewPort(true);
+        cc.view.setDesignResolutionSize(320, 480, cc.ResolutionPolicy.SHOW_ALL);
+        cc.view.resizeWithBrowserSize(true);
+        cc.director.setProjection(cc.Director.PROJECTION_2D);
 
-require(["root/CCBoot", "core"], function(boot, cc) {
-
-    require(["cocos2dPath/core/scenes/CCLoaderScene", "game/res_menu", "game/SysMenu"], function(LoaderScene, res, SysMenu) {
-        cc.game.onStart = function () {
-            cc.view.adjustViewPort(true);
-            cc.view.setDesignResolutionSize(320, 480, cc.ResolutionPolicy.SHOW_ALL);
-            cc.view.resizeWithBrowserSize(true);
-            cc.director.setProjection(cc.Director.PROJECTION_2D);
-
-            if (cc.sys.isNative) {
-                var searchPaths = jsb.fileUtils.getSearchPaths();
-                searchPaths.push('script');
-                if (cc.sys.os == cc.sys.OS_IOS || cc.sys.os == cc.sys.OS_OSX) {
-                    searchPaths.push("res");
-                    searchPaths.push("src");
-                }
-                jsb.fileUtils.setSearchPaths(searchPaths);
+        if (cc.sys.isNative) {
+            var searchPaths = jsb.fileUtils.getSearchPaths();
+            searchPaths.push('script');
+            if (cc.sys.os == cc.sys.OS_IOS || cc.sys.os == cc.sys.OS_OSX) {
+                searchPaths.push("res");
+                searchPaths.push("src");
             }
-            //load resources
-            LoaderScene.preload(res, function () {
-                cc.director.runScene(SysMenu.scene());
-            }, this);
-        };
+            jsb.fileUtils.setSearchPaths(searchPaths);
+        }
+        //load resources
+        LoaderScene.preload(res, function () {
+            cc.director.runScene(startScene.scene());
+        }, this);
+    };
+    cc.game.run();
+};
 
-        cc.game.run();
-    });
-});
+(function (){
+    var requirejsSystemInfo = {};
+    if (typeof sys !== "undefined")
+    {
+        requirejsSystemInfo = sys;
+    }
+    if (requirejsSystemInfo.isNative)
+    {
+        cc.game.prepare(function(){
+            requirejs.config(require_config);
+            requirejs(["cocosModule/core"], function(cc) {
+                requirejs(["cocos2dPath/core/scenes/CCLoaderScene", "game/res_menu", "game/SysMenu"], function(LoaderScene, res, SysMenu) {
+                    gameStartFun(LoaderScene, res, SysMenu);
+                });
+            });
+        });
+    }
+    else
+    {
+        requirejs.config(require_config);
+        requirejs(["cocosModule/core"], function(cc) {
+            requirejs(["cocos2dPath/core/scenes/CCLoaderScene", "game/res_menu", "game/SysMenu"], function(LoaderScene, res, SysMenu) {
+                gameStartFun(LoaderScene, res, SysMenu);
+            });
+        });
+
+
+    }
+})();
+
+
+
+
+
+

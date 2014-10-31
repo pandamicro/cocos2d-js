@@ -1,9 +1,9 @@
 define([
-    "require", "core", "Sprite",
+    "require", "cocosModule/core", "cocosModule/Sprite",
     "cocos2dPath/core/sprites/CCSpriteFrameCache",
     "cocos2dPath/core/sprites/CCAnimation",
     "cocos2dPath/core/sprites/CCAnimationCache",
-    "actions",
+    "cocosModule/actions",
     "game/config/GameConfig"
 ], function(require, cc, Sprite, spriteFrameCache, Animation, animationCache, actions, MW) {
     var Explosion = cc.Sprite.extend({
@@ -62,7 +62,7 @@ define([
     };
     Explosion.create = function () {
         var explosion = new Explosion();
-        var GameLayer = require("game/GameLayer");
+        var GameLayer = requirejs("game/GameLayer");
         GameLayer.sharedGameLayer.addExplosions(explosion);
         MW.CONTAINER.EXPLOSIONS.push(explosion);
         return explosion;

@@ -1,4 +1,4 @@
-define(["require", "core", "Sprite", "game/config/GameConfig"], function(require, cc, Sprite, MW) {
+define(["require", "cocosModule/core", "cocosModule/Sprite", "game/config/GameConfig"], function(require, cc, Sprite, MW) {
     var BackSky = Sprite.extend({
         active:true,
         ctor:function () {
@@ -14,7 +14,7 @@ define(["require", "core", "Sprite", "game/config/GameConfig"], function(require
 
     BackSky.create = function () {
         var background = new BackSky();
-        var GameLayer = require("game/GameLayer");
+        var GameLayer = requirejs("game/GameLayer");
         GameLayer.sharedGameLayer.addChild(background, -10);
         MW.CONTAINER.BACKSKYS.push(background);
         return background;

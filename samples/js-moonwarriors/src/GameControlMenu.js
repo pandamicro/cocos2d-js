@@ -1,11 +1,11 @@
 define([
     "require",
-    "core",
-    "Scene",
-    "layers",
-    "Menu",
-    "menuitems",
-    "audio",
+    "cocosModule/core",
+    "cocosModule/Scene",
+    "cocosModule/layers",
+    "cocosModule/Menu",
+    "cocosModule/menuitems",
+    "cocosModule/audio",
     "game/SysMenu"
 ], function(require, cc, Scene, ls, Menu, mItems, audioEngine, SysMenu) {
 
@@ -35,7 +35,7 @@ define([
             audioEngine.stopMusic();
             audioEngine.stopAllEffects();
             var scene = new Scene();
-            SysMenu = require("game/SysMenu");
+            SysMenu = requirejs("game/SysMenu");
             scene.addChild(new SysMenu());
             cc.director.runScene(new cc.TransitionFade(1.2,scene));
         }

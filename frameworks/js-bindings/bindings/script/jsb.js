@@ -42,6 +42,7 @@ require('script/jsb_cocosbuilder.js');
 require('script/jsb_deprecated.js');
 require('script/jsb_loaders.js');
 require('script/jsb_pool.js');
+require('script/jsb_require.js');
 
 if (jsb.fileUtils.isFileExist('jsb_pluginx.js')) {
     if (cc.sys.os == cc.sys.OS_IOS || cc.sys.os == cc.sys.OS_ANDROID) {

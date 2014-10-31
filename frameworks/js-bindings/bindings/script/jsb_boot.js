@@ -262,7 +262,7 @@ cc.path = {
         }
         return result;
     },
-    
+
     /**
      * Get the ext name of a path.
      * @example
@@ -280,7 +280,7 @@ cc.path = {
         if(index < 0) return null;
         return pathStr.substring(index, pathStr.length);
     },
-    
+
     /**
      * Get the file name of a file path.
      * @example
@@ -304,7 +304,7 @@ cc.path = {
             return baseName.substring(0, baseName.length - extname.length);
         return baseName;
     },
-    
+
     /**
      * Get ext name of a file path.
      * @example
@@ -316,7 +316,7 @@ cc.path = {
     dirname : function(pathStr){
         return pathStr.replace(/(\/|\\\\)$/, "").replace(/(\/|\\\\)[^(\/|\\\\)]+$/, "");
     },
-    
+
     /**
      * Change extname of a file path.
      * @example
@@ -374,7 +374,7 @@ cc.loader = {
     _register : {},//register of loaders
     cache : {},//cache for data loaded
     _langPathCache : {},//cache for lang path
-    
+
     /**
      * Get XMLHttpRequest.
      * @returns {XMLHttpRequest}
@@ -382,15 +382,15 @@ cc.loader = {
     getXMLHttpRequest : function () {
         return new XMLHttpRequest();
     },
-    
-    
+
+
     //@MODE_BEGIN DEV
-    
+
     _jsCache : {},//cache for js
-    
+
     _getArgs4Js : function(args){
         var a0 = args[0], a1 = args[1], a2 = args[2], results = ["", null, null];
-        
+
         if(args.length == 1){
             results[1] = a0 instanceof Array ? a0 : [a0];
         }else if(args.length == 2){
@@ -419,7 +419,7 @@ cc.loader = {
      */
     loadJs : function(baseDir, jsList, cb){
         var self = this, localJsCache = self._jsCache,
-        args = self._getArgs4Js(arguments);
+            args = self._getArgs4Js(arguments);
         baseDir = args[0];
         jsList = args[1];
         cb = args[2];
@@ -438,9 +438,9 @@ cc.loader = {
     loadJsWithImg : function(baseDir, jsList, cb){
         this.loadJs.apply(this, arguments);
     },
-    
+
     //@MODE_END DEV
-    
+
     /**
      * Load a single resource as txt.
      * @param {!string} url
@@ -449,7 +449,7 @@ cc.loader = {
     loadTxt : function(url, cb){
         cb(null, jsb.fileUtils.getStringFromFile(url));
     },
-    
+
     loadJson : function(url, cb){
         this.loadTxt(url, function(err, txt){
             try{
@@ -460,7 +460,7 @@ cc.loader = {
             }
         });
     },
-    
+
     /**
      * Load a single image.
      * @param {!string} url
@@ -504,7 +504,7 @@ cc.loader = {
     loadBinarySync : function(url){
         return jsb.fileUtils.getDataFromFile(url);
     },
-    
+
     /**
      * Iterator function to load res
      * @param {object} item
@@ -547,7 +547,7 @@ cc.loader = {
             cb();
         }
     },
-    
+
     /**
      * Get url with basePath.
      * @param [{string}] basePath
@@ -575,7 +575,7 @@ cc.loader = {
         }
         return url;
     },
-    
+
     /**
      * Load resources then call the callback.
      * @param {[string]} res
@@ -666,7 +666,7 @@ cc.loader = {
             self._register["." + extNames[i].trim().toLowerCase()] = loader;
         }
     },
-    
+
     /**
      * Get resource data by url.
      * @param url
@@ -683,20 +683,20 @@ cc.loader = {
         var realUrl = this.getUrl(basePath, url);
         return loader.load(realUrl, url);
     },
-    
+
     /**
      * Release the cache of resource by url.
      * @param url
      */
     release : function(url){//do nothing in jsb
     },
-    
+
     /**
      * Resource cache of all resources.
      */
     releaseAll : function(){//do nothing in jsb
     }
-    
+
 };
 cc.defineGetterSetter(cc.loader, "resPath", function(){
     return this._resPath;
@@ -1080,7 +1080,7 @@ cc._initSys = function(config, CONFIG_KEY){
      * @type {Number}
      */
     locSys.LANGUAGE_SPANISH = "es";
-    
+
     /**
      * Netherlands language code
      * @type {string}
@@ -1426,7 +1426,7 @@ cc.game = {
 
     EVENT_HIDE: "game_on_hide",
     EVENT_SHOW: "game_on_show",
-    
+
     /**
      * Key of config
      * @constant
@@ -1442,28 +1442,29 @@ cc.game = {
         id : "id",
         renderMode : "renderMode",
         jsList : "jsList",
-        classReleaseMode : "classReleaseMode"
+        classReleaseMode : "classReleaseMode",
+        useRequireJS:"useRequireJS"
     },
-    
+
     _prepareCalled : false,//whether the prepare function has been called
     _prepared : false,//whether the engine has prepared
     _paused : true,//whether the game is paused
-    
+
     _intervalId : null,//interval target of main
-    
-    
+
+
     /**
      * Config of game
      * @type {Object}
      */
     config : null,
-    
+
     /**
      * Callback when the scripts of engine have been load.
      * @type {Function}
      */
     onStart : null,
-    
+
     /**
      * Callback when game exits.
      * @type {Function}
@@ -1489,7 +1490,7 @@ cc.game = {
      * @type {Function}
      */
     onAfterPause : null,
-    
+
     /**
      * Set frameRate of game.
      * @param frameRate
@@ -1534,14 +1535,14 @@ cc.game = {
             var data = JSON.parse(txt);
             this.config = _init(data || {});
         }catch(e){
-	        cc.log("Failed to read or parse project.json");
+            cc.log("Failed to read or parse project.json");
             this.config = _init({});
         }
 //        cc._initDebugSetting(this.config[CONFIG_KEY.debugMode]);
         cc.director.setDisplayStats(this.config[CONFIG_KEY.showFPS]);
         cc._initSys(this.config, CONFIG_KEY);
     },
-    
+
     //cache for js and module that has added into jsList to be loaded.
     _jsAddedCache : {},
     _getJsListOfModule : function(moduleMap, moduleName, dir){
@@ -1572,11 +1573,18 @@ cc.game = {
         var self = this, config = self.config, CONFIG_KEY = self.CONFIG_KEY, loader = cc.loader;
         require("script/jsb.js");
         self._prepareCalled = true;
-        loader.loadJsWithImg("", config[CONFIG_KEY.jsList] || [], function(err){
-            if(err) throw err;
-            self._prepared = true;
+        if  (config[CONFIG_KEY.useRequireJS])
+        {
             if(cb) cb();
-        });
+        }
+        else
+        {
+            loader.loadJsWithImg("", config[CONFIG_KEY.jsList] || [], function(err){
+                if(err) throw err;
+                self._prepared = true;
+                if(cb) cb();
+            });
+        }
     }
 };
 cc.game._initConfig();
@@ -1595,38 +1603,38 @@ else if(window.JavaScriptObjCBridge && (cc.sys.os == cc.sys.OS_IOS || cc.sys.os 
 }
 
 jsb.urlRegExp = new RegExp(
-    "^" +
+        "^" +
         // protocol identifier
         "(?:(?:https?|ftp)://)" +
         // user:pass authentication
         "(?:\\S+(?::\\S*)?@)?" +
         "(?:" +
-            // IP address exclusion
-            // private & local networks
-            "(?!(?:10|127)(?:\\.\\d{1,3}){3})" +
-            "(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})" +
-            "(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})" +
-            // IP address dotted notation octets
-            // excludes loopback network 0.0.0.0
-            // excludes reserved space >= 224.0.0.0
-            // excludes network & broacast addresses
-            // (first & last IP address of each class)
-            "(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])" +
-            "(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}" +
-            "(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))" +
+        // IP address exclusion
+        // private & local networks
+        "(?!(?:10|127)(?:\\.\\d{1,3}){3})" +
+        "(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})" +
+        "(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})" +
+        // IP address dotted notation octets
+        // excludes loopback network 0.0.0.0
+        // excludes reserved space >= 224.0.0.0
+        // excludes network & broacast addresses
+        // (first & last IP address of each class)
+        "(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])" +
+        "(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}" +
+        "(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))" +
         "|" +
-            // host name
-            "(?:(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)" +
-            // domain name
-            "(?:\\.(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)*" +
-            // TLD identifier
-            "(?:\\.(?:[a-z\\u00a1-\\uffff]{2,}))" +
+        // host name
+        "(?:(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)" +
+        // domain name
+        "(?:\\.(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)*" +
+        // TLD identifier
+        "(?:\\.(?:[a-z\\u00a1-\\uffff]{2,}))" +
         ")" +
         // port number
         "(?::\\d{2,5})?" +
         // resource path
         "(?:/\\S*)?" +
-    "$", "i"
+        "$", "i"
 );
 
 //+++++++++++++++++++++++++other initializations end+++++++++++++++++++++++++++++

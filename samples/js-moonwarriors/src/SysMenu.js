@@ -1,6 +1,6 @@
 define([
     "require",
-    "core", "Scene", "LoaderScene", "layers", "Sprite", "Menu", "menuitems", "actions", "audio",
+    "cocosModule/core", "cocosModule/Scene", "cocosModule/LoaderScene", "cocosModule/layers", "cocosModule/Sprite", "cocosModule/Menu", "cocosModule/menuitems", "cocosModule/actions", "cocosModule/audio",
     "cocos2dPath/core/sprites/CCSpriteFrameCache",
     "cocos2dPath/transitions/CCTransition",
     "game/config/GameConfig",
@@ -85,8 +85,8 @@ define([
                 audioEngine.stopMusic();
                 audioEngine.stopAllEffects();
                 var scene = new Scene();
-                GameLayer = require("game/GameLayer");
-                GameControlMenu = require("game/GameControlMenu");
+                GameLayer = requirejs("game/GameLayer");
+                GameControlMenu = requirejs("game/GameControlMenu");
                 scene.addChild(new GameLayer());
                 scene.addChild(new GameControlMenu());
                 cc.director.runScene(new transition(1.2, scene));
@@ -95,14 +95,14 @@ define([
         onSettings:function (pSender) {
             this.onButtonEffect();
             var scene = new Scene();
-            SettingsLayer = require("game/SettingsLayer");
+            SettingsLayer = requirejs("game/SettingsLayer");
             scene.addChild(new SettingsLayer());
             cc.director.runScene(new transition(1.2, scene));
         },
         onAbout:function (pSender) {
             this.onButtonEffect();
             var scene = new Scene();
-            AboutLayer = require("game/AboutLayer");
+            AboutLayer = requirejs("game/AboutLayer");
             scene.addChild(new AboutLayer());
             cc.director.runScene(new transition(1.2, scene));
         },

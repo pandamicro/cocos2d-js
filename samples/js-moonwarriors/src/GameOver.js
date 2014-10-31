@@ -1,10 +1,11 @@
 define([
     "require",
-    "core", "Scene", "Sprite", "layers", "Menu", "menuitems", "audio",
+    "cocosModule/core", "cocosModule/Scene", "cocosModule/Sprite", "cocosModule/layers", "cocosModule/Menu", "cocosModule/menuitems", "cocosModule/audio",
     "game/config/GameConfig",
     "game/Effect",
-    "game/GameControlMenu"
-], function(require, cc, Scene, Sprite, ls, Menu, mItems, audioEngine, MW, flareEffect, GameControlMenu) {
+    "game/GameControlMenu",
+    "cocos2dPath/core/labelttf/CCLabelTTF"
+], function(require, cc, Scene, Sprite, ls, Menu, mItems, audioEngine, MW, flareEffect, GameControlMenu, LabelTTF) {
 
     var GameOver = ls.Layer.extend({
         _ship:null,
@@ -48,7 +49,6 @@ define([
             this.addChild(menu, 1, 2);
             menu.x = winSize.width / 2;
             menu.y = 220;
-
             var lbScore = new LabelTTF("Your Score:"+MW.SCORE,"Arial Bold",16);
             lbScore.x = 160;
             lbScore.y = 280;
@@ -80,7 +80,7 @@ define([
             audioEngine.stopMusic();
             audioEngine.stopAllEffects();
             var scene = new Scene();
-            var GameLayer = require("game/GameLayer");
+            var GameLayer = requirejs("game/GameLayer");
             scene.addChild(new GameLayer());
             scene.addChild(new GameControlMenu());
             cc.director.runScene(new cc.TransitionFade(1.2,scene));

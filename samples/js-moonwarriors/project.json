@@ -5,6 +5,7 @@
     "id" : "gameCanvas",
     "renderMode" : 0,
     "engineDir":"../../frameworks/cocos2d-html5",
+    "useRequireJS": true,
 
     "modules" : ["cocos2d"],
 
