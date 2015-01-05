@@ -22,6 +22,7 @@
 #include "network/jsb_websocket.h"
 #include "network/jsb_socketio.h"
 #include "cocosbuilder/js_bindings_ccbreader.h"
+#include "jsb_cocos2dx_sqlite.hpp"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include "jsb_cocos2dx_pluginx_auto.hpp"
@@ -47,13 +48,20 @@ AppDelegate::~AppDelegate()
     ScriptEngineManager::destroyInstance();
 }
 
+void AppDelegate::initGLContextAttrs()
+{
+    GLContextAttrs glContextAttrs = {8, 8, 8, 8, 24, 8};
+    
+    GLView::setGLContextAttrs(glContextAttrs);
+}
+
 bool AppDelegate::applicationDidFinishLaunching()
 {
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLView::createWithRect("js-tests", Rect(0,0,900,640));
+        glview = cocos2d::GLViewImpl::createWithRect("js-tests", Rect(0,0,900,640));
         director->setOpenGLView(glview);
     }
 
@@ -87,7 +95,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     sc->addRegisterCallback(register_all_pluginx_protocols);
     sc->addRegisterCallback(register_pluginx_js_extensions);
 #endif
-    
+    sc->addRegisterCallback(register_all_jsb_cocos2dx_sqlLite); 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     sc->addRegisterCallback(JavascriptJavaBridge::_js_register);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC)

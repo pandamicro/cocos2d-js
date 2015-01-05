@@ -171,6 +171,8 @@ ccui.Widget.POSITION_PERCENT = 1;
  */
 //listView event type
 ccui.ListView.EVENT_SELECTED_ITEM = 0;
+ccui.ListView.ON_SELECTED_ITEM_START = 0;
+ccui.ListView.ON_SELECTED_ITEM_END = 1;
 
 //listView gravity
 ccui.ListView.GRAVITY_LEFT = 0;
@@ -345,9 +347,3 @@ ccui.MarginZero = function(){
 ccui.Widget.prototype.addNode = ccui.Widget.prototype.addChild;
 ccui.Widget.prototype.getSize = ccui.Widget.prototype.getContentSize;
 ccui.Widget.prototype.setSize = ccui.Widget.prototype.setContentSize;
-
-/*
- * UITextField temporary solution to getString, wait for -x patch
- */
-ccui.TextField.prototype.getString = ccui.TextField.prototype.getStringValue;
-ccui.TextField.prototype.setString = ccui.TextField.prototype.setText;

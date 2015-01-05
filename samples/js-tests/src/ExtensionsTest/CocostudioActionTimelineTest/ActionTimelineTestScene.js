@@ -22,7 +22,7 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-(function(){
+var ActionTimelineTestScene = (function(){
 
     var ActionTimelineTestSceneEnum = {
         TEST_ANIMATIONELEMENT: 0,
@@ -71,7 +71,6 @@
             this.removeAllChildren();
         }
     });
-    window.ActionTimelineTestScene = ActionTimelineTestScene;
 
     var ActionTimelineTestLayer = cc.Layer.extend({
 
@@ -102,13 +101,13 @@
         },
         onEnter: function(){
             cc.Layer.prototype.onEnter.call(this);
-
+            
             // add title and subtitle
             var title = this.title();
             var label = cc.LabelTTF.create(title, "Arial", 18);
             label.setColor(cc.color(0, 0, 0));
             this.addChild(label, 1, 10000);
-            label.setPosition( cc.p(400, 370) );
+            label.setPosition( cc.p(cc.winSize.width/2, cc.winSize.height - 80) );
 
             var strSubtitle = this.subtitle();
             if( ! strSubtitle  )
@@ -116,7 +115,7 @@
                 var l = cc.LabelTTF.create(strSubtitle, "Arial", 18);
                 l.setColor(cc.color(0, 0, 0));
                 this.addChild(l, 1, 10001);
-                l.setPosition(400, 340);
+                l.setPosition(cc.winSize.width/2, cc.winSize.height - 110);
             }
 
             // add menu
@@ -127,9 +126,9 @@
             var menu = cc.Menu.create(this._backItem, this._restartItem, this._nextItem);
 
             menu.setPosition(cc.p(0, 0));
-            this._backItem.setPosition(400 - this._restartItem.getContentSize().width * 2, this._restartItem.getContentSize().height / 2);
-            this._restartItem.setPosition(400, this._restartItem.getContentSize().height / 2);
-            this._nextItem.setPosition(400 + this._restartItem.getContentSize().width * 2, this._restartItem.getContentSize().height / 2);
+            this._backItem.setPosition(cc.winSize.width/2 - this._restartItem.getContentSize().width * 2, this._restartItem.getContentSize().height / 2);
+            this._restartItem.setPosition(cc.winSize.width/2, this._restartItem.getContentSize().height / 2);
+            this._nextItem.setPosition(cc.winSize.width/2 + this._restartItem.getContentSize().width * 2, this._restartItem.getContentSize().height / 2);
 
             this.addChild(menu, 100);
 
@@ -151,8 +150,8 @@
 
             cc.spriteFrameCache.addSpriteFrames("res/armatures/Cowboy0.plist", "res/armatures/Cowboy0.png");
 
-            var node = ccs.NodeReader.createNode("res/ActionTimeline/boy_1.ExportJson");
-            var action = ccs.ActionTimelineCache.createAction("res/ActionTimeline/boy_1.ExportJson");
+            var node = ccs.csLoader.createNode("res/ActionTimeline/boy_1.ExportJson");
+            var action = ccs.actionTimelineCache.createAction("res/ActionTimeline/boy_1.ExportJson");
 
             node.runAction(action);
             action.gotoFrameAndPlay(0, 60, true);
@@ -176,8 +175,8 @@
 
             cc.spriteFrameCache.addSpriteFrames("res/armatures/Cowboy0.plist", "res/armatures/Cowboy0.png");
 
-            var node = ccs.NodeReader.createNode("res/ActionTimeline/boy_1.ExportJson");
-            this._action = ccs.ActionTimelineCache.createAction("res/ActionTimeline/boy_1.ExportJson");
+            var node = ccs.csLoader.createNode("res/ActionTimeline/boy_1.ExportJson");
+            this._action = ccs.actionTimelineCache.createAction("res/ActionTimeline/boy_1.ExportJson");
 
             node.runAction(this._action);
             this._action.gotoFrameAndPlay(70, this._action.getDuration(), true);
@@ -203,6 +202,8 @@
                 target._action.gotoFrameAndPlay(70, target._action.getDuration(), true);
             else
                 target._action.gotoFrameAndPlay(0, 60, true);
+
+            return true;
         }
 
     });
@@ -213,9 +214,8 @@
 
             cc.spriteFrameCache.addSpriteFrames("res/armatures/Cowboy0.plist", "res/armatures/Cowboy0.png");
 
-            var node = ccs.NodeReader.createNode("res/ActionTimeline/boy_1.ExportJson");
-            var action = ccs.ActionTimelineCache.createAction("res/ActionTimeline/boy_1.ExportJson");
-
+            var node = ccs.csLoader.createNode("res/ActionTimeline/boy_1.ExportJson");
+            var action = ccs.actionTimelineCache.createAction("res/ActionTimeline/boy_1.ExportJson");
             node.runAction(action);
             action.gotoFrameAndPlay(0, 60, true);
 
@@ -250,8 +250,8 @@
             cc.spriteFrameCache.addSpriteFrames("res/armatures/Cowboy0.plist", "res/armatures/Cowboy0.png");
 
             for (var i = 0; i< 100; i++){
-                var node = ccs.NodeReader.createNode("res/ActionTimeline/boy_1.ExportJson");
-                var action = ccs.ActionTimelineCache.createAction("res/ActionTimeline/boy_1.ExportJson");
+                var node = ccs.csLoader.createNode("res/ActionTimeline/boy_1.ExportJson");
+                var action = ccs.actionTimelineCache.createAction("res/ActionTimeline/boy_1.ExportJson");
 
                 node.runAction(action);
                 action.gotoFrameAndPlay(70, action.getDuration(), true);
@@ -313,4 +313,5 @@
         return pLayer;
     };
 
+    return ActionTimelineTestScene;
 })();

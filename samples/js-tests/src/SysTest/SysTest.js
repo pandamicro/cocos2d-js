@@ -68,6 +68,72 @@ var SysTestBase = BaseTestLayer.extend({
 // LocalStorageTest
 //
 //------------------------------------------------------------------
+var JSBSqliteTest = SysTestBase.extend({
+    _title:"JSBSqliteTest Test only use in native",
+    _subtitle:"See the console",
+
+    ctor:function () {
+        this._super();
+
+        if(!cc.sys.isNative){
+            cc.log("only used in Native");
+            return true;
+        }
+
+        cc.log("strat to test sqlite");
+
+        this._db = new jsbsql.SQLiteWrapper();
+        this._dbPath = this._db.copyToWritablePath("res/database/data.db");
+
+        //this._isOpen = this._db.open(this._dbPath);
+        this._isOpen = this._db.open(this._dbPath);
+
+        cc.log("database open reslut: "+this._isOpen);
+
+        if(this._isOpen){
+            var st = this._db.statement("select * from equip");
+
+            var ary = [];
+            while(st.nextRow()){
+                var equipVO = {
+                    wid:null,//like 10000001
+                    name:null,//like money
+                    level:null,//like 1
+                    type:null,//like 1
+                    price:null,//like 200
+                    stackCount:null,//like 99
+                    bind:null,//like 1
+                    desc:null,//like plus money
+                    quality:null,//like 1
+                    icon:null,//like item/article/10000001.png
+                    toString:function(){
+                    return this.wid + " " + this.name + " " + this.level + " " + this.desc + " " + this.icon;
+                    }
+                };
+                equipVO.wid = parseInt(st.valueString(0));
+                equipVO.name = st.valueString(1);
+                equipVO.desc = st.valueString(2);
+                equipVO.level = st.valueString(3);
+                equipVO.icon = st.valueString(4);
+                equipVO.quality = st.valueString(5);
+                ary.push(equipVO);
+            }
+
+            for(var vo in ary){
+                cc.log("equipData:" + ary[vo].toString());
+            }
+
+            this._db.close();
+        }
+    }
+
+});
+
+//------------------------------------------------------------------
+//
+// LocalStorageTest
+//
+//------------------------------------------------------------------
 var LocalStorageTest = SysTestBase.extend({
     _title:"LocalStorage Test ",
     _subtitle:"See the console",
@@ -114,8 +180,8 @@ var CapabilitiesTest = SysTestBase.extend({
 });
 
 var SysTestScene = TestScene.extend({
-    runThisTest:function () {
-        sysTestSceneIdx = -1;
+    runThisTest:function (num) {
+        sysTestSceneIdx = (num || num == 0) ? (num - 1) : -1;
         var layer = nextSysTest();
         this.addChild(layer);
 
@@ -128,8 +194,8 @@ var SysTestScene = TestScene.extend({
 //
 
 var arrayOfSysTest = [
-
     LocalStorageTest,
+    JSBSqliteTest,
     CapabilitiesTest
 ];
 
